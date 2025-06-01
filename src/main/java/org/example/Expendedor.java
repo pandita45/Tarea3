@@ -169,4 +169,8 @@ class Expendedor {
     public Producto getProducto(){
         return recogida.get();
     }
+
+    public void agregarSaldo(Moneda moneda) {
+        
+    }
 }

@@ -7,22 +7,18 @@ class Comprador {
     private String sonido;
     private int cuantoDinero;
     private ArrayList<Moneda> bolsillo;
+    private int vuelto;
 
-    public Comprador(int cuantoDinero) {
+    public Comprador(int a100, int b500, int c1000) {
         bolsillo = new ArrayList<Moneda>();
-
-        for(int i = 0; i < cuantoDinero/1000; i++){
-            cuantoDinero = cuantoDinero - 1000;
-            bolsillo.add(new Moneda1000());
+        for(int i = 0; i < a100; i++){
+            bolsillo.add(new Moneda100());
         }
-
-        for(int i = 0; i < cuantoDinero/500; i ++){
-            cuantoDinero = cuantoDinero - 500;
+        for(int i = 0; i < b500; i++){
             bolsillo.add(new Moneda500());
         }
-
-        for (int i = 0; i < cuantoDinero / 100; i++) {
-            bolsillo.add(new Moneda100());
+        for(int i = 0; i < c1000; i++){
+            bolsillo.add(new Moneda1000());
         }
     }
 
@@ -30,14 +26,51 @@ class Comprador {
      * @return Devuelve el vuelto
      */
     public int cuantoVuelto() {
-        return cuantoDinero;
+        return this.vuelto;
     }
+
+    public int saldoActual(){
+        for(Moneda moneda: bolsillo){
+            this.cuantoDinero += moneda.getValor();
+        }
+        return this.cuantoDinero;
+    }
+
 
     /**
      * @return Devuelve el sonido
      */
     public String queCompraste() {
         return sonido;
+    }
+    public void meterMoneda(Expendedor exp, int a){
+        if(a == 100){
+            for(Moneda moneda: bolsillo){
+                if(moneda.getValor() == 100){
+                    exp.agregarSaldo(moneda);
+                    bolsillo.remove(moneda);
+                    break;
+                }
+            }
+        }
+        else if(a == 500){
+            for(Moneda moneda: bolsillo){
+                if(moneda.getValor() == 500){
+                    exp.agregarSaldo(moneda);
+                    bolsillo.remove(moneda);
+                    break;
+                }
+            }
+        }
+        else if (a == 1000) {
+            for(Moneda moneda: bolsillo){
+                if(moneda.getValor() == 1000){
+                    exp.agregarSaldo(moneda);
+                    bolsillo.remove(moneda);
+                    break;
+                }
+            }
+        }
     }
 
     public void comprar(Moneda m, ProductoYPrecios NumPad, Expendedor exp) throws Errores{
@@ -53,7 +86,7 @@ class Comprador {
         }
         Moneda mon;
         while ((mon = exp.getVuelto()) != null) {
-            cuantoDinero += mon.getValor();
+            this.vuelto += mon.getValor();
         }
     }
 }

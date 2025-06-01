@@ -1,30 +1,36 @@
 package org.example;
 
 
+import java.util.ArrayList;
+
 class Comprador {
     private String sonido;
-    private int vuelto;
+    private int cuantoDinero;
+    private ArrayList<Moneda> bolsillo;
 
-    /**
-     * Comprador ingresando una moneda y seleccionando un producto en una Expendedora, despues se ejecuta comprarProducto
-     * para hacer la compra o de ser el caso, hacer throw de un error, luego se le asigna el valor a sonido (producto que compro)
-     * y finalmente se le asigna valor al vuelto.
-     * @param m Moneda que ingresa el Comprador.
-     * @param NumPad Producto seleccionado en la Expendedora.
-     * @param exp Expendedora con la que se interactua.
-     * @throws PagoIncorrectoException en caso de que no se ingrese una moneda.
-     * @throws PagoInsuficienteException en caso de que no se page lo suficiente para comprar el producto solicitado.
-     * @throws NoHayProductoException en caso de que no quede stcok del producto solicitado.
-     */
-    public Comprador(Moneda m, ProductoYPrecios NumPad, Expendedor exp) throws Errores{
-        exp.comprarProducto(m,NumPad);
+    public Comprador(int cuantoDinero) {
+        bolsillo = new ArrayList<Moneda>();
+
+        for(int i = 0; i < cuantoDinero/1000; i++){
+            cuantoDinero = cuantoDinero - 1000;
+            bolsillo.add(new Moneda1000());
+        }
+
+        for(int i = 0; i < cuantoDinero/500; i ++){
+            cuantoDinero = cuantoDinero - 500;
+            bolsillo.add(new Moneda500());
+        }
+
+        for (int i = 0; i < cuantoDinero / 100; i++) {
+            bolsillo.add(new Moneda100());
+        }
     }
 
     /**
      * @return Devuelve el vuelto
      */
     public int cuantoVuelto() {
-        return vuelto;
+        return cuantoDinero;
     }
 
     /**
@@ -32,6 +38,10 @@ class Comprador {
      */
     public String queCompraste() {
         return sonido;
+    }
+
+    public void comprar(Moneda m, ProductoYPrecios NumPad, Expendedor exp) throws Errores{
+        exp.comprarProducto(m,NumPad);
     }
 
     public void recogerProducto(Expendedor exp){
@@ -43,7 +53,7 @@ class Comprador {
         }
         Moneda mon;
         while ((mon = exp.getVuelto()) != null) {
-            vuelto += mon.getValor();
+            cuantoDinero += mon.getValor();
         }
     }
 }

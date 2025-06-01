@@ -7,10 +7,11 @@ class Expendedor {
     private DepositoDulce Super8;
     private DepositoDulce Snickers;
     private DepositoMoneda monVu;
+    private DepositoProductos recogida;
 
     /**
-     * El constructor de expendedor crea todos los depositos necesarios y los llena en base a un parametro
-     * @param a Determina la cantidad de elementos que tendra el expendedor
+     * El constructor de expendedor crea todos los depósitos necesarios y los llena con base en un parametro "a"
+     * @param a Determina la cantidad de elementos que tendrá el expendedor
      */
     public Expendedor(int a) {
         this.monVu = new DepositoMoneda();
@@ -19,6 +20,7 @@ class Expendedor {
         this.Fanta = new DepositoBebida();
         this.Super8 = new DepositoDulce();
         this.Snickers = new DepositoDulce();
+        this.recogida = new DepositoProductos();
         for (int i = 0; i < a; i++) {
             CocaCola.add(new CocaCola(100 + i));
             Sprite.add(new Sprite(200 + i));
@@ -29,18 +31,17 @@ class Expendedor {
     }
 
     /**
-     *  El metodo comprarProducto recibe una moneda y una opcion numerica
-     *  Comprueba que haya stock, que alcance el dinero y que exista una moneda valida
-     *  Luego llena el deposito de monedas con las correspodientes monedas de 100 (vuelto)
+     *  El metodo comprarProducto recibe una moneda y una opción numerica
+     *  Comprueba que haya stock, que alcance el dinero y que exista una moneda válida
+     *  Luego llena el depósito de monedas con las correspondiéntes monedas de 100 (vuelto)
      * @param moneda  Corresponde a una moneda de 100, 500, o 1000
-     * @param y       Corresponde a la opcion de producto
-     * @return        Devuelve el producto solicitado
-     * @throws NoHayProductoException Cuando el deposito no tiene productos
+     * @param y       Corresponde a la opción de producto
+     * @throws NoHayProductoException Cuando el depósito no tiene productos
      * @throws PagoIncorrectoException Cuando no se ingreso ninguna moneda
      * @throws PagoInsuficienteException Cuando el valor de moneda es menor al precio
      */
 
-    public Producto comprarProducto(Moneda moneda, ProductoYPrecios y) throws Errores {
+    public void comprarProducto(Moneda moneda, ProductoYPrecios y) throws Errores {
         if (moneda != null) {
             switch (y) {
                 case COCACOLA: {
@@ -49,7 +50,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
-                        return CocaCola.get();
+                        recogida.add(CocaCola.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
                         monVu.get();
@@ -66,7 +67,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
-                        return Sprite.get();
+                        recogida.add(Sprite.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
                         monVu.get();
@@ -83,7 +84,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
-                        return Fanta.get();
+                        recogida.add(Fanta.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
                         monVu.get();
@@ -100,7 +101,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
-                        return Super8.get();
+                        recogida.add(Super8.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
                         monVu.get();
@@ -117,7 +118,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
-                        return Snickers.get();
+                        recogida.add(Snickers.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
                         monVu.get();
@@ -133,6 +134,11 @@ class Expendedor {
         monVu.add(moneda);
         throw new PagoIncorrectoException();
     }
+
+    /**
+     * Tomando el valor del vuelto, se agregan mágicamente las monedas necesarias para que se den como vuelto, de mayor a menor valor.
+     * @param vuelto es el valor numérico que se debe dar de vuelto
+     */
     private void calcularVuelto(int vuelto){
         for(int i = 0; i < vuelto/1000; i++){
             vuelto = vuelto - 1000;
@@ -149,10 +155,18 @@ class Expendedor {
 
     }
     /**
-     * Getvuelto Llama a un metodo de la clase DepositoMoneda, la cual vacia y el deposito, devolviendo su contenido
-     * @return Entrega todas las monedas de 100 correspondientes al vuelto
+     * getvuelto Llama a un metodo que saca las monedas del depósito.
+     * @return Entrega todas las monedas correspondientes al vuelto
      */
     public Moneda getVuelto() {
         return monVu.get();
+    }
+
+    /**
+     * getProducto llama al metodo que saca el producto del deposito de recogida.
+     * @return Producto que se compró
+     */
+    public Producto getProducto(){
+        return recogida.get();
     }
 }

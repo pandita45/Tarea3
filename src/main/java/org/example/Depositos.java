@@ -48,3 +48,6 @@ class DepositoMoneda extends DepositoBase<Moneda> {
 
 class DepositoDulce extends DepositoBase<Dulce> {
 }
+
+class DepositoProductos extends DepositoBase<Producto> {
+}

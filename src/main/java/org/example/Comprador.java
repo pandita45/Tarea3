@@ -17,18 +17,7 @@ class Comprador {
      * @throws NoHayProductoException en caso de que no quede stcok del producto solicitado.
      */
     public Comprador(Moneda m, ProductoYPrecios NumPad, Expendedor exp) throws Errores{
-        //se ingresa una moneda, el id del objeto que se quiere comprar y el expendedor.
-
-        Producto b = exp.comprarProducto(m,NumPad);
-        if (b != null) {
-            sonido = b.accion();
-        } else {
-            sonido = null;
-        }
-        Moneda mon;
-        while ((mon = exp.getVuelto()) != null) {
-            vuelto += mon.getValor();
-        }
+        exp.comprarProducto(m,NumPad);
     }
 
     /**
@@ -38,7 +27,23 @@ class Comprador {
         return vuelto;
     }
 
+    /**
+     * @return Devuelve el sonido
+     */
     public String queCompraste() {
         return sonido;
+    }
+
+    public void recogerProducto(Expendedor exp){
+        Producto b = exp.getProducto();
+        if (b != null) {
+            sonido = b.accion();
+        } else {
+            sonido = null;
+        }
+        Moneda mon;
+        while ((mon = exp.getVuelto()) != null) {
+            vuelto += mon.getValor();
+        }
     }
 }

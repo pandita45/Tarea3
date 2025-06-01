@@ -6,19 +6,19 @@ import java.util.ArrayList;
 class Comprador {
     private String sonido;
     private int cuantoDinero;
-    private ArrayList<Moneda> bolsillo;
+    private ArrayList<Moneda> monedero;
     private int vuelto;
 
     public Comprador(int a100, int b500, int c1000) {
-        bolsillo = new ArrayList<Moneda>();
-        for(int i = 0; i < a100; i++){
-            bolsillo.add(new Moneda100());
+        monedero = new ArrayList<Moneda>();
+        for (int i = 0; i < a100; i++) {
+            monedero.add(new Moneda100());
         }
-        for(int i = 0; i < b500; i++){
-            bolsillo.add(new Moneda500());
+        for (int i = 0; i < b500; i++) {
+            monedero.add(new Moneda500());
         }
-        for(int i = 0; i < c1000; i++){
-            bolsillo.add(new Moneda1000());
+        for (int i = 0; i < c1000; i++) {
+            monedero.add(new Moneda1000());
         }
     }
 
@@ -29,8 +29,8 @@ class Comprador {
         return this.vuelto;
     }
 
-    public int saldoActual(){
-        for(Moneda moneda: bolsillo){
+    public int saldoActual() {
+        for (Moneda moneda : monedero) {
             this.cuantoDinero += moneda.getValor();
         }
         return this.cuantoDinero;
@@ -43,49 +43,53 @@ class Comprador {
     public String queCompraste() {
         return sonido;
     }
-    public void meterMoneda(Expendedor exp, int a){
-        if(a == 100){
-            for(Moneda moneda: bolsillo){
-                if(moneda.getValor() == 100){
+
+    public void meterMoneda(Expendedor exp, int a) {
+        if (a == 100) {
+            for (Moneda moneda : monedero) {
+                if (moneda.getValor() == 100) {
                     exp.agregarSaldo(moneda);
-                    bolsillo.remove(moneda);
+                    monedero.remove(moneda);
                     break;
                 }
             }
-        }
-        else if(a == 500){
-            for(Moneda moneda: bolsillo){
-                if(moneda.getValor() == 500){
+        } else if (a == 500) {
+            for (Moneda moneda : monedero) {
+                if (moneda.getValor() == 500) {
                     exp.agregarSaldo(moneda);
-                    bolsillo.remove(moneda);
+                    monedero.remove(moneda);
                     break;
                 }
             }
-        }
-        else if (a == 1000) {
-            for(Moneda moneda: bolsillo){
-                if(moneda.getValor() == 1000){
+        } else if (a == 1000) {
+            for (Moneda moneda : monedero) {
+                if (moneda.getValor() == 1000) {
                     exp.agregarSaldo(moneda);
-                    bolsillo.remove(moneda);
+                    monedero.remove(moneda);
                     break;
                 }
             }
         }
     }
 
-    public void comprar(Moneda m, ProductoYPrecios NumPad, Expendedor exp) throws Errores{
-        exp.comprarProducto(m,NumPad);
+    public void comprar(Moneda m, ProductoYPrecios NumPad, Expendedor exp) throws Errores {
+        exp.comprarProducto(m, NumPad);
     }
 
-    public void recogerProducto(Expendedor exp){
+    public void recogerProducto(Expendedor exp) {
         Producto b = exp.getProducto();
         if (b != null) {
             sonido = b.accion();
         } else {
             sonido = null;
         }
+
+    }
+
+    public void recogerVuelto(Expendedor exp) {
         Moneda mon;
         while ((mon = exp.getVuelto()) != null) {
+            monedero.add(mon);
             this.vuelto += mon.getValor();
         }
     }

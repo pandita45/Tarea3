@@ -8,6 +8,8 @@ class Expendedor {
     private DepositoDulce Snickers;
     private DepositoMoneda monVu;
     private DepositoProductos recogida;
+    private DepositoMoneda monAlmac;
+    private int saldo;
 
     /**
      * El constructor de expendedor crea todos los depósitos necesarios y los llena con base en un parametro "a"
@@ -50,6 +52,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
+                        monAlmac.add(moneda);
                         recogida.add(CocaCola.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -67,6 +70,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
+                        monAlmac.add(moneda);
                         recogida.add(Sprite.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -84,6 +88,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
+                        monAlmac.add(moneda);
                         recogida.add(Fanta.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -101,6 +106,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
+                        monAlmac.add(moneda);
                         recogida.add(Super8.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -118,6 +124,7 @@ class Expendedor {
                     if (moneda.getValor() >= precio && b != 0) {
                         int vuelto = moneda.getValor() - precio;
                         calcularVuelto(vuelto);
+                        monAlmac.add(moneda);
                         recogida.add(Snickers.get());
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -171,6 +178,6 @@ class Expendedor {
     }
 
     public void agregarSaldo(Moneda moneda) {
-        
+        this.saldo+= moneda.getValor();
     }
 }

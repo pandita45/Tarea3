@@ -192,7 +192,7 @@ public class Main {
         System.out.println("Vuelto: "+ snicker.cuantoVuelto());
         System.out.println("Que Compraste: " + snicker.queCompraste());
 
-        System.out.println("Compra de super8, Valor = " + ProductoYPrecios.SUPER8.getPrecio() + " moneda de 1000");
+        System.out.println("Compra de super8, Valor = " + ProductoYPrecios.SUPER8.getPrecio() + ", moneda de 1000");
         Comprador super8 = new Comprador(mon1000, ProductoYPrecios.SUPER8,expendedor);
         System.out.println("Vuelto: "+ super8.cuantoVuelto());
         System.out.println("Que Compraste: " + super8.queCompraste());

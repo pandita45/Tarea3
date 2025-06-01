@@ -47,9 +47,8 @@ class Expendedor {
                     int precio = ProductoYPrecios.COCACOLA.getPrecio();
                     int b = CocaCola.getStock();
                     if (moneda.getValor() >= precio && b != 0) {
-                        for (int i = 0; i < (moneda.getValor() - precio) / 100; i++) {
-                            monVu.add(new Moneda100());
-                        }
+                        int vuelto = moneda.getValor() - precio;
+                        calcularVuelto(vuelto);
                         return CocaCola.get();
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -65,9 +64,8 @@ class Expendedor {
                     int precio = ProductoYPrecios.SPRITE.getPrecio();
                     int b = Sprite.getStock();
                     if (moneda.getValor() >= precio && b != 0) {
-                        for (int i = 0; i < (moneda.getValor() - precio) / 100; i++) {
-                            monVu.add(new Moneda100());
-                        }
+                        int vuelto = moneda.getValor() - precio;
+                        calcularVuelto(vuelto);
                         return Sprite.get();
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -83,9 +81,8 @@ class Expendedor {
                     int precio = ProductoYPrecios.FANTA.getPrecio();
                     int b = Fanta.getStock();
                     if (moneda.getValor() >= precio && b != 0) {
-                        for (int i = 0; i < (moneda.getValor() - precio) / 100; i++) {
-                            monVu.add(new Moneda100());
-                        }
+                        int vuelto = moneda.getValor() - precio;
+                        calcularVuelto(vuelto);
                         return Fanta.get();
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -101,9 +98,8 @@ class Expendedor {
                     int precio = ProductoYPrecios.SUPER8.getPrecio();
                     int b = Super8.getStock();
                     if (moneda.getValor() >= precio && b != 0) {
-                        for (int i = 0; i < (moneda.getValor() - precio) / 100; i++) {
-                            monVu.add(new Moneda100());
-                        }
+                        int vuelto = moneda.getValor() - precio;
+                        calcularVuelto(vuelto);
                         return Super8.get();
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -119,9 +115,8 @@ class Expendedor {
                     int precio = ProductoYPrecios.SNICKER.getPrecio();
                     int b = Snickers.getStock();
                     if (moneda.getValor() >= precio && b != 0) {
-                        for (int i = 0; i < (moneda.getValor() - precio) / 100; i++) {
-                            monVu.add(new Moneda100());
-                        }
+                        int vuelto = moneda.getValor() - precio;
+                        calcularVuelto(vuelto);
                         return Snickers.get();
                     } else if (moneda.getValor()<precio){
                         monVu.add(moneda);
@@ -138,7 +133,21 @@ class Expendedor {
         monVu.add(moneda);
         throw new PagoIncorrectoException();
     }
+    private void calcularVuelto(int vuelto){
+        for(int i = 0; i < vuelto/1000; i++){
+            vuelto = vuelto - 1000;
+            monVu.add(new Moneda1000());
+        }
+        for(int i = 0; i < vuelto/500; i ++){
+            vuelto = vuelto - 500;
+            monVu.add(new Moneda500());
+        }
 
+        for (int i = 0; i < vuelto / 100; i++) {
+            monVu.add(new Moneda100());
+        }
+
+    }
     /**
      * Getvuelto Llama a un metodo de la clase DepositoMoneda, la cual vacia y el deposito, devolviendo su contenido
      * @return Entrega todas las monedas de 100 correspondientes al vuelto

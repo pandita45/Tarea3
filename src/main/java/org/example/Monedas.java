@@ -1,7 +1,13 @@
 package org.example;
 
 abstract class Moneda implements Comparable<Moneda>{
+    private int serieM;
     public Moneda() {
+    }
+
+
+    public int getSerieM() {
+        return serieM;
     }
 
     /**
@@ -53,6 +59,7 @@ class Moneda100 extends Moneda {
     public Moneda100() {
         super();
     }
+
     @Override
     public int getValor() {
         return 100;

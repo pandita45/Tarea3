@@ -24,11 +24,12 @@ class Expendedor {
         this.Snickers = new DepositoDulce();
         this.recogida = new DepositoProductos();
         for (int i = 0; i < a; i++) {
-            CocaCola.add(new CocaCola(100 + i));
-            Sprite.add(new Sprite(200 + i));
-            Fanta.add(new Fanta(300 + i));
-            Super8.add(new Super8(400 + i));
-            Snickers.add(new Snickers(500+i));
+                CocaCola.add(new CocaCola(i));
+                Sprite.add(new Sprite(a + i));
+                Fanta.add(new Fanta(2 * a + i));
+                Super8.add(new Super8(3 * a + i));
+                Snickers.add(new Snickers(4 * a + i));
+
         }
     }
 

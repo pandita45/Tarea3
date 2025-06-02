@@ -2,7 +2,8 @@ package org.example;
 
 abstract class Moneda implements Comparable<Moneda>{
     private int serieM;
-    public Moneda() {
+    public Moneda(int a) {
+        this.serieM=a;
     }
 
 
@@ -36,8 +37,8 @@ abstract class Moneda implements Comparable<Moneda>{
 }
 
 class Moneda1000 extends Moneda {
-    public Moneda1000() {
-        super();
+    public Moneda1000(int a) {
+        super(a);
     }
     @Override
     public int getValor() {
@@ -46,8 +47,8 @@ class Moneda1000 extends Moneda {
 }
 
 class Moneda500 extends Moneda {
-    public Moneda500() {
-        super();
+    public Moneda500(int a) {
+        super(a);
     }
     @Override
     public int getValor() {
@@ -56,8 +57,8 @@ class Moneda500 extends Moneda {
 }
 
 class Moneda100 extends Moneda {
-    public Moneda100() {
-        super();
+    public Moneda100(int a) {
+        super(a);
     }
 
     @Override

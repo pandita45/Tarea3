@@ -10,6 +10,8 @@ class Expendedor {
     private DepositoProductos recogida;
     private DepositoMoneda monAlmac;
     private int saldo;
+    private int serieP=0;
+    private int stock;
 
     /**
      * El constructor de expendedor crea todos los depósitos necesarios y los llena con base en un parametro "a"
@@ -23,12 +25,13 @@ class Expendedor {
         this.Super8 = new DepositoDulce();
         this.Snickers = new DepositoDulce();
         this.recogida = new DepositoProductos();
+        this.stock=a;
         for (int i = 0; i < a; i++) {
-                CocaCola.add(new CocaCola(i));
-                Sprite.add(new Sprite(a + i));
-                Fanta.add(new Fanta(2 * a + i));
-                Super8.add(new Super8(3 * a + i));
-                Snickers.add(new Snickers(4 * a + i));
+                CocaCola.add(new CocaCola(serieP++));
+                Sprite.add(new Sprite(serieP++));
+                Fanta.add(new Fanta(serieP++));
+                Super8.add(new Super8(serieP++));
+                Snickers.add(new Snickers(serieP++));
 
         }
     }
@@ -150,17 +153,16 @@ class Expendedor {
     private void calcularVuelto(int vuelto){
         for(int i = 0; i < vuelto/1000; i++){
             vuelto = vuelto - 1000;
-            monVu.add(new Moneda1000());
+            monVu.add(new Moneda1000(Comprador.serie++));
         }
         for(int i = 0; i < vuelto/500; i ++){
             vuelto = vuelto - 500;
-            monVu.add(new Moneda500());
+            monVu.add(new Moneda500(Comprador.serie++));
         }
 
         for (int i = 0; i < vuelto / 100; i++) {
-            monVu.add(new Moneda100());
+            monVu.add(new Moneda100(Comprador.serie++));
         }
-
     }
     /**
      * getvuelto Llama a un metodo que saca las monedas del depósito.
@@ -178,7 +180,39 @@ class Expendedor {
         return recogida.get();
     }
 
-    public void agregarSaldo(Moneda moneda) {
+    public void agregarSaldo(Moneda moneda){
         this.saldo+= moneda.getValor();
     }
+    public void rellenar(){
+        if(CocaCola.Deposito.isEmpty()) {
+            for (int i = 0; i < stock; i++) {
+                CocaCola.add(new CocaCola(serieP++));
+            }
+        }
+        if (Sprite.Deposito.isEmpty()) {
+            for (int i = 0; i < stock; i++) {
+                Sprite.add(new Sprite(serieP++));
+            }
+        }
+
+        if (Fanta.Deposito.isEmpty()) {
+            for (int i = 0; i < stock; i++) {
+                Fanta.add(new Fanta(serieP++));
+            }
+        }
+
+        if (Super8.Deposito.isEmpty()) {
+            for (int i = 0; i < stock; i++) {
+                Super8.add(new Super8(serieP++));
+            }
+        }
+
+        if (Snickers.Deposito.isEmpty()) {
+            for (int i = 0; i < stock; i++) {
+                Snickers.add(new Snickers(serieP++));
+            }
+        }
+    }
 }
+
+

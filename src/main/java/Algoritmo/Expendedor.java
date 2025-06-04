@@ -1,5 +1,4 @@
 package Algoritmo;
-
 class Expendedor {
     private DepositoBebida CocaCola;
     private DepositoBebida Sprite;

@@ -1,25 +1,23 @@
 package View;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class Ventana extends JFrame{
+    private PanelPrincipal principal;
 
     public Ventana() {
         super();
-        setTitle("Doom_MachineV9");
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int ancho = (int) (screenSize.width);
-        int alto = (int) (screenSize.height);
+        setLayout(null);
+        getContentPane().setBackground(Color.decode("#090925"));
+        principal = new PanelPrincipal();
+        add(principal);
 
-        setSize(ancho, alto);
+        setTitle("Doom_MachineV9");
+        setSize(1920,1080);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel fondo = new JPanel(new BorderLayout());
-        fondo.setBackground(Color.decode("#090925"));
-
-
-        add(fondo);
     }
-
 }

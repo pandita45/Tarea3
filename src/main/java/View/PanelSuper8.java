@@ -5,5 +5,7 @@ import javax.swing.*;
 public class PanelSuper8 extends JPanel {
     public PanelSuper8() {
         super();
+        setSize(1920,1080);
+        setOpaque(false);
     }
 }

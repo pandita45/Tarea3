@@ -8,19 +8,14 @@ public class PanelPrincipal extends JPanel {
     private PanelComprador comprador;
     public PanelPrincipal(){
         super();
+        setLayout(null);
+        setOpaque(false);
+        setSize(1920,1080);
         expendedor = new PanelExpendedor();
         comprador = new PanelComprador();
         add(expendedor);
         add(comprador);
 
     }
-
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-    }
-
 
 }

@@ -16,7 +16,7 @@ public class PanelFanta extends JPanel {
                 Image image = imageIcon.getImage();
                 g.drawImage(image,403+ i*55, 462, 48,85,null);
             } catch (Exception e) {
-                System.out.println("Error al cargar la imagen de la coca cola");
+                System.out.println("Error al cargar la imagen de la fanta");
             }
         }
     }

@@ -15,7 +15,5 @@ public class PanelComprador extends JPanel {
         inventario=new PanelInventario();
         add(monedero);
         add(inventario);
-
-
     }
 }

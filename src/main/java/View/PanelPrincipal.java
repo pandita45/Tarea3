@@ -11,7 +11,7 @@ public class PanelPrincipal extends JPanel {
         setLayout(null);
         setOpaque(false);
         setSize(1920,1080);
-        expendedor = new PanelExpendedor();
+        expendedor = new PanelExpendedor(4);
         comprador = new PanelComprador();
         add(expendedor);
         add(comprador);

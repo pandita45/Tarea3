@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import Algoritmo.
 
 
 public class PanelExpendedor extends JPanel {
@@ -10,8 +11,11 @@ public class PanelExpendedor extends JPanel {
     private PanelSnickers snickers;
     private PanelFanta fanta;
     private PanelSprite sprite;
+    private TextoExpendedor precios;
     public PanelExpendedor(){
         super();
+        precios = new TextoExpendedor("1000\n Stock: " + StockCoca);
+        precios.setBounds(135,300,700,30);
         setLayout(null);
         setSize(1920,1080);
         setOpaque(false);
@@ -25,7 +29,7 @@ public class PanelExpendedor extends JPanel {
         add(super8);
         add(fanta);
         add(snickers);
-
+        add(precios);
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -37,5 +41,4 @@ public class PanelExpendedor extends JPanel {
             System.out.println("Error al cargar la imagen del expendedor");
         }
     }
-
 }

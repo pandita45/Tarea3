@@ -10,11 +10,11 @@ public class PanelInventario extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         try {
-            ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("Inventario.jpg"));
+            ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("Inventario.png"));
             Image image = imageIcon.getImage();
-            g.drawImage(image,1000, 160,null);
+            g.drawImage(image,1000, 80,800,800,null);
         } catch (Exception e) {
-            System.out.println("Error al cargar la imagen de la coca cola");
+            System.out.println("Error al cargar la imagen del inventario");
         }
 
     }

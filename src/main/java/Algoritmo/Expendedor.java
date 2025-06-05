@@ -8,6 +8,7 @@ public class Expendedor {
     private DepositoMoneda monVu;
     private DepositoProductos recogida;
     private DepositoMoneda monAlmac;
+    private int opcion = 0;
     public int saldo=0;
     public static int serieP=0;
     private int stock;
@@ -17,6 +18,7 @@ public class Expendedor {
      * @param a Determina la cantidad de elementos que tendrá el expendedor
      */
     public Expendedor(int a) {
+
         this.monAlmac = new DepositoMoneda();
         this.monVu = new DepositoMoneda();
         this.CocaCola = new DepositoBebida();
@@ -47,6 +49,7 @@ public class Expendedor {
      */
 
     public void comprarProducto(ProductoYPrecios y) throws Errores {
+            this.opcion = y.getId();
             switch (y) {
                 case COCACOLA: {
                     int precio = ProductoYPrecios.COCACOLA.getPrecio();
@@ -213,6 +216,9 @@ public class Expendedor {
 
     public int getSaldo() {
         return saldo;
+    }
+    public int getOpcion(){
+        return this.opcion;
     }
 }
 

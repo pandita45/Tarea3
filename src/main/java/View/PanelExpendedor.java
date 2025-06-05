@@ -18,9 +18,10 @@ public class PanelExpendedor extends JPanel {
     private TextoExpendedor DatosSuper8;
     private TextoExpendedor DatosSnickers;
     private TextoExpendedor Saldo;
-
+    private PanelRecogida productoComprado;
     public PanelExpendedor(){
         super();
+        productoComprado = new PanelRecogida();
         exp= new Expendedor(App.CANTIDAD_PRODUCTOS);
         DatosCoca = new TextoExpendedor(null);
         DatosCoca.setBounds(145,300,700,30);
@@ -53,6 +54,9 @@ public class PanelExpendedor extends JPanel {
         add(DatosSuper8);
         add(DatosSnickers);
         add(Saldo);
+        if(PanelExpendedor.exp.getOpcion() != 0){
+            add(productoComprado);
+        }
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -69,6 +73,7 @@ public class PanelExpendedor extends JPanel {
         DatosSuper8.setText("$" + ProductoYPrecios.SUPER8.getPrecio() + "  Stock: " + exp.Super8.getStock());
         DatosSnickers.setText("$" + ProductoYPrecios.SNICKER.getPrecio() + "  Stock: " + exp.Snickers.getStock());
         Saldo.setText("$" + exp.getSaldo());
+
     }
 
 }

@@ -17,6 +17,7 @@ public class Expendedor {
      * @param a Determina la cantidad de elementos que tendrá el expendedor
      */
     public Expendedor(int a) {
+        this.monAlmac = new DepositoMoneda();
         this.monVu = new DepositoMoneda();
         this.CocaCola = new DepositoBebida();
         this.Sprite = new DepositoBebida();
@@ -39,110 +40,89 @@ public class Expendedor {
      *  El metodo comprarProducto recibe una moneda y una opción numerica
      *  Comprueba que haya stock, que alcance el dinero y que exista una moneda válida
      *  Luego llena el depósito de monedas con las correspondiéntes monedas de 100 (vuelto)
-     * @param moneda  Corresponde a una moneda de 100, 500, o 1000
      * @param y       Corresponde a la opción de producto
      * @throws NoHayProductoException Cuando el depósito no tiene productos
      * @throws PagoIncorrectoException Cuando no se ingreso ninguna moneda
      * @throws PagoInsuficienteException Cuando el valor de moneda es menor al precio
      */
 
-    public void comprarProducto(Moneda moneda, ProductoYPrecios y) throws Errores {
-        if (moneda != null) {
+    public void comprarProducto(ProductoYPrecios y) throws Errores {
             switch (y) {
                 case COCACOLA: {
                     int precio = ProductoYPrecios.COCACOLA.getPrecio();
                     int b = CocaCola.getStock();
-                    if (moneda.getValor() >= precio && b != 0) {
-                        int vuelto = moneda.getValor() - precio;
+                    if (this.saldo >= precio && b != 0) {
+                        int vuelto = this.saldo - precio;
                         calcularVuelto(vuelto);
-                        monAlmac.add(moneda);
                         recogida.add(CocaCola.get());
-                    } else if (moneda.getValor()<precio){
-                        monVu.add(moneda);
-                        monVu.get();
+                        monVu.transportar(monVu,monAlmac);
+                    } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
-                        monVu.add(moneda);
-                        monVu.get();
                         throw new NoHayProductoException();
                     }
                 }
+
                 case SPRITE: {
                     int precio = ProductoYPrecios.SPRITE.getPrecio();
                     int b = Sprite.getStock();
-                    if (moneda.getValor() >= precio && b != 0) {
-                        int vuelto = moneda.getValor() - precio;
+                    if (this.saldo >= precio && b != 0) {
+                        int vuelto = this.saldo - precio;
                         calcularVuelto(vuelto);
-                        monAlmac.add(moneda);
                         recogida.add(Sprite.get());
-                    } else if (moneda.getValor()<precio){
-                        monVu.add(moneda);
-                        monVu.get();
+                        monVu.transportar(monVu,monAlmac);
+                    } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
-                        monVu.add(moneda);
-                        monVu.get();
                         throw new NoHayProductoException();
                     }
                 }
+
                 case FANTA: {
                     int precio = ProductoYPrecios.FANTA.getPrecio();
                     int b = Fanta.getStock();
-                    if (moneda.getValor() >= precio && b != 0) {
-                        int vuelto = moneda.getValor() - precio;
+                    if (this.saldo >= precio && b != 0) {
+                        int vuelto = this.saldo - precio;
                         calcularVuelto(vuelto);
-                        monAlmac.add(moneda);
                         recogida.add(Fanta.get());
-                    } else if (moneda.getValor()<precio){
-                        monVu.add(moneda);
-                        monVu.get();
+                        monVu.transportar(monVu,monAlmac);
+                    } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
-                        monVu.add(moneda);
-                        monVu.get();
                         throw new NoHayProductoException();
                     }
                 }
+
                 case SUPER8: {
                     int precio = ProductoYPrecios.SUPER8.getPrecio();
                     int b = Super8.getStock();
-                    if (moneda.getValor() >= precio && b != 0) {
-                        int vuelto = moneda.getValor() - precio;
+                    if (this.saldo >= precio && b != 0) {
+                        int vuelto = this.saldo - precio;
                         calcularVuelto(vuelto);
-                        monAlmac.add(moneda);
                         recogida.add(Super8.get());
-                    } else if (moneda.getValor()<precio){
-                        monVu.add(moneda);
-                        monVu.get();
+                        monVu.transportar(monVu,monAlmac);
+                    } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
-                        monVu.add(moneda);
-                        monVu.get();
                         throw new NoHayProductoException();
                     }
                 }
+
                 case SNICKER: {
                     int precio = ProductoYPrecios.SNICKER.getPrecio();
                     int b = Snickers.getStock();
-                    if (moneda.getValor() >= precio && b != 0) {
-                        int vuelto = moneda.getValor() - precio;
+                    if (this.saldo >= precio && b != 0) {
+                        int vuelto = this.saldo - precio;
                         calcularVuelto(vuelto);
-                        monAlmac.add(moneda);
                         recogida.add(Snickers.get());
-                    } else if (moneda.getValor()<precio){
-                        monVu.add(moneda);
-                        monVu.get();
+                        monVu.transportar(monVu,monAlmac);
+                    } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
-                        monVu.add(moneda);
-                        monVu.get();
                         throw new NoHayProductoException();
                     }
                 }
             }
-        }
-        monVu.add(moneda);
-        throw new PagoIncorrectoException();
     }
 
     /**
@@ -154,6 +134,7 @@ public class Expendedor {
             vuelto = vuelto - 1000;
             monVu.add(new Moneda1000());
         }
+
         for(int i = 0; i < vuelto/500; i ++){
             vuelto = vuelto - 500;
             monVu.add(new Moneda500());
@@ -178,9 +159,11 @@ public class Expendedor {
     public Producto getProducto(){
         return recogida.get();
     }
-
     public void agregarSaldo(Moneda moneda){
-        this.saldo+= moneda.getValor();
+        if(moneda != null) {
+            this.saldo += moneda.getValor();
+            monVu.add(moneda);
+        }
     }
     public void rellenar(){
         if(CocaCola.Deposito.isEmpty()) {

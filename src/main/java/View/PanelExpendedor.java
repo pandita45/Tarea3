@@ -22,17 +22,17 @@ public class PanelExpendedor extends JPanel {
     public PanelExpendedor(){
         super();
         exp= new Expendedor(App.CANTIDAD_PRODUCTOS);
-        DatosCoca = new TextoExpendedor("$" + ProductoYPrecios.COCACOLA.getPrecio()+"  Stock: " + exp.CocaCola.getStock());
+        DatosCoca = new TextoExpendedor(null);
         DatosCoca.setBounds(145,300,700,30);
-        DatosSprite = new TextoExpendedor("$" +ProductoYPrecios.SPRITE.getPrecio()+"  Stock: " + exp.Sprite.getStock());
+        DatosSprite = new TextoExpendedor(null);
         DatosSprite.setBounds(145,405,700,30);
-        DatosFanta = new TextoExpendedor("$" +ProductoYPrecios.FANTA.getPrecio()+"  Stock: " + exp.Fanta.getStock());
+        DatosFanta = new TextoExpendedor(null);
         DatosFanta.setBounds(145,510,700,30);
-        DatosSuper8 = new TextoExpendedor("$" +ProductoYPrecios.SUPER8.getPrecio()+"  Stock: " + exp.Super8.getStock());
+        DatosSuper8 = new TextoExpendedor(null);
         DatosSuper8.setBounds(145,615,700,30);
-        DatosSnickers = new TextoExpendedor("$" +ProductoYPrecios.SNICKER.getPrecio()+"  Stock: " + exp.Snickers.getStock());
+        DatosSnickers = new TextoExpendedor(null);
         DatosSnickers.setBounds(145,720,700,30);
-        Saldo = new TextoExpendedor("$"+exp.getSaldo());
+        Saldo = new TextoExpendedor(null);
         Saldo.setBounds(745,320,700,30);
         setLayout(null);
         setSize(1920,1080);
@@ -63,16 +63,12 @@ public class PanelExpendedor extends JPanel {
         } catch (Exception e) {
             System.out.println("Error al cargar la imagen del expendedor");
         }
-    }
-    public void actualizarDatos() {
         DatosCoca.setText("$" + ProductoYPrecios.COCACOLA.getPrecio() + "  Stock: " + exp.CocaCola.getStock());
         DatosSprite.setText("$" + ProductoYPrecios.SPRITE.getPrecio() + "  Stock: " + exp.Sprite.getStock());
         DatosFanta.setText("$" + ProductoYPrecios.FANTA.getPrecio() + "  Stock: " + exp.Fanta.getStock());
         DatosSuper8.setText("$" + ProductoYPrecios.SUPER8.getPrecio() + "  Stock: " + exp.Super8.getStock());
         DatosSnickers.setText("$" + ProductoYPrecios.SNICKER.getPrecio() + "  Stock: " + exp.Snickers.getStock());
         Saldo.setText("$" + exp.getSaldo());
-        revalidate();
-        repaint();
     }
 
 }

@@ -7,7 +7,6 @@ class Comprador {
     private String sonido;
     private int cuantoDinero;
     private ArrayList<Moneda> monedero;
-    private int vuelto;
     public Comprador(int a100, int b500, int c1000) {
         monedero = new ArrayList<Moneda>();
 
@@ -20,13 +19,6 @@ class Comprador {
         for (int i = 0; i < c1000; i++) {
             monedero.add(new Moneda1000());
         }
-    }
-
-    /**
-     * @return Devuelve el vuelto
-     */
-    public int cuantoVuelto() {
-        return this.vuelto;
     }
 
     public int saldoActual() {
@@ -72,8 +64,8 @@ class Comprador {
         }
     }
 
-    public void comprar(Moneda m, ProductoYPrecios NumPad, Expendedor exp) throws Errores {
-        exp.comprarProducto(m, NumPad);
+    public void comprar(ProductoYPrecios NumPad, Expendedor exp) throws Errores {
+        exp.comprarProducto(NumPad);
     }
 
     public void recogerProducto(Expendedor exp) {
@@ -83,14 +75,12 @@ class Comprador {
         } else {
             sonido = null;
         }
-
     }
 
     public void recogerVuelto(Expendedor exp) {
         Moneda mon;
         while ((mon = exp.getVuelto()) != null) {
             monedero.add(mon);
-            this.vuelto += mon.getValor();
         }
     }
 }

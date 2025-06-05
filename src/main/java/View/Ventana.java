@@ -1,15 +1,15 @@
 package View;
 
 import Algoritmo.Expendedor;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
 public class Ventana extends JFrame{
     private PanelPrincipal principal;
+    private static Ventana instancia;
 
-    public Ventana() {
+    private Ventana() {
         super();
         setLayout(null);
         getContentPane().setBackground(Color.decode("#090925"));
@@ -22,7 +22,14 @@ public class Ventana extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
-    public void actualizar(){
-        principal.actualizarPanelExpendedor();
+
+    public static Ventana getInstancia() {
+        if (instancia == null) {
+            instancia = new Ventana();
+        }
+        return instancia;
+    }
+    public static void actualizar(){
+        instancia.repaint();
     }
 }

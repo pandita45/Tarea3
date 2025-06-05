@@ -15,9 +15,4 @@ public class PanelPrincipal extends JPanel {
         add(expendedor);
         add(comprador);
     }
-    public void actualizarPanelExpendedor() {
-        expendedor.actualizarDatos();
-        revalidate();
-        repaint();
-    }
 }

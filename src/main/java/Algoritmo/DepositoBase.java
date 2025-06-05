@@ -30,6 +30,11 @@ public abstract class DepositoBase<item> {
             return null;
         }
     }
+    public void transportar(DepositoBase a, DepositoBase b){
+        for (int i = 0; i < a.getStock() ; i++) {
+            b.add(a.get());
+        }
+    }
 
     /**
      * getStock es para saber cuantos items hay en cierto deposito

@@ -1,5 +1,7 @@
 package View;
 
+import Algoritmo.Expendedor;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -19,5 +21,8 @@ public class Ventana extends JFrame{
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    }
+    public void actualizar(){
+        principal.actualizarPanelExpendedor();
     }
 }

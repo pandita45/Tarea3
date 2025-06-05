@@ -1,7 +1,8 @@
 package Algoritmo;
+
 import java.util.ArrayList;
 
-abstract class DepositoBase<item> {
+public abstract class DepositoBase<item> {
     protected ArrayList<item> Deposito;
 
     public DepositoBase() {
@@ -10,6 +11,7 @@ abstract class DepositoBase<item> {
 
     /**
      * add agrega el item (Bebida, Moneda o Dulce) a su deposito correspondiente.
+     *
      * @param a item que se agregara al deposito.
      */
     public void add(item a) {
@@ -18,6 +20,7 @@ abstract class DepositoBase<item> {
 
     /**
      * get saca un item de su respectivo deposito
+     *
      * @return devuelve el ultimo item que se agrego al deposito, en caso de que este vacio, devuelve null.
      */
     public item get() {
@@ -30,24 +33,10 @@ abstract class DepositoBase<item> {
 
     /**
      * getStock es para saber cuantos items hay en cierto deposito
+     *
      * @return devuelve el tamaño del array en donde se almacena cierto item
      */
     public int getStock() {
         return Deposito.size();
     }
-}
-
-/**
- * Depositos especificos heredados de DepositoBase
- */
-class DepositoBebida extends DepositoBase<Bebida> {
-}
-
-class DepositoMoneda extends DepositoBase<Moneda> {
-}
-
-class DepositoDulce extends DepositoBase<Dulce> {
-}
-
-class DepositoProductos extends DepositoBase<Producto> {
 }

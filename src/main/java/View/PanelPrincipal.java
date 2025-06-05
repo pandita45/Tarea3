@@ -1,7 +1,6 @@
 package View;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class PanelPrincipal extends JPanel {
     private PanelExpendedor expendedor;
@@ -11,11 +10,14 @@ public class PanelPrincipal extends JPanel {
         setLayout(null);
         setOpaque(false);
         setSize(1920,1080);
-        expendedor = new PanelExpendedor(4);
+        expendedor = new PanelExpendedor();
         comprador = new PanelComprador();
         add(expendedor);
         add(comprador);
-
     }
-
+    public void actualizarPanelExpendedor() {
+        expendedor.actualizarDatos();
+        revalidate();
+        repaint();
+    }
 }

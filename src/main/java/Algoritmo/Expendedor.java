@@ -1,15 +1,15 @@
 package Algoritmo;
-class Expendedor {
-    private DepositoBebida CocaCola;
-    private DepositoBebida Sprite;
-    private DepositoBebida Fanta;
-    private DepositoDulce Super8;
-    private DepositoDulce Snickers;
+public class Expendedor {
+    public DepositoBebida CocaCola;
+    public DepositoBebida Sprite;
+    public DepositoBebida Fanta;
+    public DepositoDulce Super8;
+    public DepositoDulce Snickers;
     private DepositoMoneda monVu;
     private DepositoProductos recogida;
     private DepositoMoneda monAlmac;
-    private int saldo;
-    private int serieP=0;
+    public int saldo=0;
+    public static int serieP=0;
     private int stock;
 
     /**
@@ -152,15 +152,15 @@ class Expendedor {
     private void calcularVuelto(int vuelto){
         for(int i = 0; i < vuelto/1000; i++){
             vuelto = vuelto - 1000;
-            monVu.add(new Moneda1000(Comprador.serie++));
+            monVu.add(new Moneda1000());
         }
         for(int i = 0; i < vuelto/500; i ++){
             vuelto = vuelto - 500;
-            monVu.add(new Moneda500(Comprador.serie++));
+            monVu.add(new Moneda500());
         }
 
         for (int i = 0; i < vuelto / 100; i++) {
-            monVu.add(new Moneda100(Comprador.serie++));
+            monVu.add(new Moneda100());
         }
     }
     /**
@@ -211,6 +211,10 @@ class Expendedor {
                 Snickers.add(new Snickers(serieP++));
             }
         }
+    }
+
+    public int getSaldo() {
+        return saldo;
     }
 }
 

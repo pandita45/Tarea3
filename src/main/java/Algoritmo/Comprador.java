@@ -8,18 +8,17 @@ class Comprador {
     private int cuantoDinero;
     private ArrayList<Moneda> monedero;
     private int vuelto;
-    public static int serie=0;
     public Comprador(int a100, int b500, int c1000) {
         monedero = new ArrayList<Moneda>();
 
         for (int i = 0; i < a100; i++) {
-            monedero.add(new Moneda100(serie++));
+            monedero.add(new Moneda100());
         }
         for (int i = 0; i < b500; i++) {
-            monedero.add(new Moneda500(serie++));
+            monedero.add(new Moneda500());
         }
         for (int i = 0; i < c1000; i++) {
-            monedero.add(new Moneda1000(serie++));
+            monedero.add(new Moneda1000());
         }
     }
 

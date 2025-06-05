@@ -5,6 +5,5 @@ import java.awt.*;
 
 public class BotonCompra extends JButton{
     public BotonCompra(){
-
     }
 }

@@ -10,9 +10,12 @@ public class PanelSuper8 extends JPanel {
         setOpaque(false);
     }
     protected void paintComponent(Graphics g) {
-
         super.paintComponent(g);
-        for (int i = 0; i < 5; i++) {
+        int a=5;
+        if(PanelExpendedor.exp.Super8.getStock()<5){
+            a=PanelExpendedor.exp.Super8.getStock();
+        }
+        for (int i = 0; i < a; i++) {
             try {
                 ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("super8.png"));
                 Image image = imageIcon.getImage();

@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.sql.SQLOutput;
 
 public class App {
-    public static final int CANTIDAD_PRODUCTOS=4;
+    public static final int CANTIDAD_PRODUCTOS=3;
     private static Ventana v;
     public static void main(String[] args) throws Exception {
 
@@ -17,20 +17,26 @@ public class App {
         Thread.sleep(500);
 
 
-        PanelExpendedor.exp.agregarSaldo(new Moneda500());
-        ProductoYPrecios.COCACOLA.setPrecio(500);
-        Ventana.actualizar();
-
-        Thread.sleep(500);
-
         PanelExpendedor.exp.agregarSaldo(new Moneda1000());
 
         Ventana.actualizar();
 
-        PanelExpendedor.exp.comprarProducto(ProductoYPrecios.COCACOLA);
+        Thread.sleep(2000);
 
-        System.out.println(PanelExpendedor.exp.CocaCola.getStock());
-        System.out.println(PanelExpendedor.exp.Sprite.getStock());
+        PanelExpendedor.exp.agregarSaldo(new Moneda1000());
+        Ventana.actualizar();
+        PanelExpendedor.exp.comprarProducto(ProductoYPrecios.SPRITE);
+        Ventana.actualizar();
+        Thread.sleep(2000);
+        PanelExpendedor.exp.agregarSaldo(new Moneda1000());
+        Ventana.actualizar();
+        Thread.sleep(2000);
+        PanelExpendedor.exp.comprarProducto(ProductoYPrecios.COCACOLA);
+        Ventana.actualizar();
+        Thread.sleep(2000);
+
+        Ventana.actualizar();
+
 
 
     }

@@ -56,11 +56,14 @@ public class Expendedor {
                         calcularVuelto(vuelto);
                         recogida.add(CocaCola.get());
                         monVu.transportar(monVu,monAlmac);
+                        this.saldo=0;
+                        System.out.println(vuelto);
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
                         throw new NoHayProductoException();
                     }
+                    break;
                 }
 
                 case SPRITE: {
@@ -71,11 +74,14 @@ public class Expendedor {
                         calcularVuelto(vuelto);
                         recogida.add(Sprite.get());
                         monVu.transportar(monVu,monAlmac);
+                        this.saldo=0;
+                        System.out.println(vuelto);
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
                         throw new NoHayProductoException();
                     }
+                    break;
                 }
 
                 case FANTA: {
@@ -86,11 +92,14 @@ public class Expendedor {
                         calcularVuelto(vuelto);
                         recogida.add(Fanta.get());
                         monVu.transportar(monVu,monAlmac);
+                        this.saldo=0;
+                        System.out.println(vuelto);
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
                         throw new NoHayProductoException();
                     }
+                    break;
                 }
 
                 case SUPER8: {
@@ -101,11 +110,14 @@ public class Expendedor {
                         calcularVuelto(vuelto);
                         recogida.add(Super8.get());
                         monVu.transportar(monVu,monAlmac);
+                        this.saldo=0;
+                        System.out.println(vuelto);
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
                         throw new NoHayProductoException();
                     }
+                    break;
                 }
 
                 case SNICKER: {
@@ -116,11 +128,14 @@ public class Expendedor {
                         calcularVuelto(vuelto);
                         recogida.add(Snickers.get());
                         monVu.transportar(monVu,monAlmac);
+                        this.saldo=0;
+                        System.out.println(vuelto);
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
                         throw new NoHayProductoException();
                     }
+                    break;
                 }
             }
     }

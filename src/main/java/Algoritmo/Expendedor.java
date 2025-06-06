@@ -60,7 +60,6 @@ public class Expendedor {
                         recogida.add(CocaCola.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
-                        System.out.println(vuelto);
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
@@ -78,7 +77,6 @@ public class Expendedor {
                         recogida.add(Sprite.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
-                        System.out.println(vuelto);
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
@@ -96,7 +94,6 @@ public class Expendedor {
                         recogida.add(Fanta.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
-                        System.out.println(vuelto);
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
@@ -114,7 +111,8 @@ public class Expendedor {
                         recogida.add(Super8.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
-                        System.out.println(vuelto);
+                        System.out.println(Super8.getStock());
+                        System.out.println(Snickers.getStock());
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
@@ -132,7 +130,8 @@ public class Expendedor {
                         recogida.add(Snickers.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
-                        System.out.println(vuelto);
+                        System.out.println(Snickers.getStock());
+                        System.out.println(Super8.getStock());
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {

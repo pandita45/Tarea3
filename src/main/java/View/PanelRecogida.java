@@ -11,7 +11,6 @@ public class PanelRecogida extends JPanel {
         super();
         setSize(1920,1080);
         setOpaque(false);
-
     }
 
     protected void paintComponent(Graphics g) {

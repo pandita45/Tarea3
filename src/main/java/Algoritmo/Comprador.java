@@ -3,7 +3,7 @@ package Algoritmo;
 
 import java.util.ArrayList;
 
-class Comprador {
+public class Comprador {
     private String sonido;
     private int cuantoDinero;
     private ArrayList<Moneda> monedero;

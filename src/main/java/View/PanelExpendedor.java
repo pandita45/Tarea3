@@ -19,6 +19,7 @@ public class PanelExpendedor extends JPanel {
     private TextoExpendedor DatosSnickers;
     private TextoExpendedor Saldo;
     private PanelRecogida productoComprado;
+    private BotonCompra compra;
     public PanelExpendedor(){
         super();
         productoComprado = new PanelRecogida();
@@ -30,9 +31,9 @@ public class PanelExpendedor extends JPanel {
         DatosFanta = new TextoExpendedor(null);
         DatosFanta.setBounds(145,510,700,30);
         DatosSuper8 = new TextoExpendedor(null);
-        DatosSuper8.setBounds(145,615,700,30);
+        DatosSuper8.setBounds(145,720,700,30);
         DatosSnickers = new TextoExpendedor(null);
-        DatosSnickers.setBounds(145,720,700,30);
+        DatosSnickers.setBounds(145,615,700,30);
         Saldo = new TextoExpendedor(null);
         Saldo.setBounds(745,320,700,30);
         setLayout(null);
@@ -43,6 +44,8 @@ public class PanelExpendedor extends JPanel {
         snickers = new PanelSnickers();
         fanta = new PanelFanta();
         sprite = new PanelSprite();
+        compra=new BotonCompra();
+        compra.setBounds(133,240,230,525);
         add(sprite);
         add(coca);
         add(super8);
@@ -51,11 +54,11 @@ public class PanelExpendedor extends JPanel {
         add(DatosCoca);
         add(DatosSprite);
         add(DatosFanta);
-        add(DatosSuper8);
         add(DatosSnickers);
+        add(DatosSuper8);
         add(Saldo);
         add(productoComprado);
-
+        add(compra);
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -69,8 +72,8 @@ public class PanelExpendedor extends JPanel {
         DatosCoca.setText("$" + ProductoYPrecios.COCACOLA.getPrecio() + "  Stock: " + exp.CocaCola.getStock());
         DatosSprite.setText("$" + ProductoYPrecios.SPRITE.getPrecio() + "  Stock: " + exp.Sprite.getStock());
         DatosFanta.setText("$" + ProductoYPrecios.FANTA.getPrecio() + "  Stock: " + exp.Fanta.getStock());
-        DatosSuper8.setText("$" + ProductoYPrecios.SUPER8.getPrecio() + "  Stock: " + exp.Super8.getStock());
         DatosSnickers.setText("$" + ProductoYPrecios.SNICKER.getPrecio() + "  Stock: " + exp.Snickers.getStock());
+        DatosSuper8.setText("$" + ProductoYPrecios.SUPER8.getPrecio() + "  Stock: " + exp.Super8.getStock());
         Saldo.setText("$" + exp.getSaldo());
 
     }

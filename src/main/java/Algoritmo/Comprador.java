@@ -7,9 +7,11 @@ public class Comprador {
     private String sonido;
     public int cuantoDinero;
     private ArrayList<Moneda> monedero;
+    private ArrayList<Producto> inventario;
+
     public Comprador(int a100, int b500, int c1000) {
         monedero = new ArrayList<Moneda>();
-
+        inventario = new ArrayList<Producto>();
         for (int i = 0; i < a100; i++) {
             monedero.add(new Moneda100());
         }
@@ -22,7 +24,7 @@ public class Comprador {
     }
 
     public int saldoActual() {
-        this.cuantoDinero=0;
+        this.cuantoDinero = 0;
         for (Moneda moneda : monedero) {
             this.cuantoDinero += moneda.getValor();
         }
@@ -71,6 +73,7 @@ public class Comprador {
 
     public void recogerProducto(Expendedor exp) {
         Producto b = exp.getProducto();
+        inventario.add(b);
         if (b != null) {
             sonido = b.accion();
         } else {
@@ -84,10 +87,36 @@ public class Comprador {
             monedero.add(mon);
         }
     }
+
     public int cuantasMonedas(int valor) {
         int cont = 0;
         for (Moneda monedas : monedero) {
             if (monedas.getValor() == valor) {
+                cont++;
+            }
+        }
+        return cont;
+    }
+
+    public int cuantosProductos(ProductoYPrecios a) {
+        int cont;
+        switch (a){
+            case COCACOLA -> cont=contar("cocacola");
+            case SPRITE -> cont=contar("sprite");
+            case FANTA -> cont=contar("fanta");
+            case SNICKER -> cont=contar("Snickers");
+            case SUPER8 -> cont=contar("Super8");
+            default -> {
+                cont=0;
+            }
+        }
+        return cont;
+    }
+
+    public int contar(String accion) {
+        int cont=0;
+        for(Producto producto: inventario){
+            if(producto.accion()== accion){
                 cont++;
             }
         }

@@ -9,7 +9,7 @@ public class Expendedor {
     private DepositoProductos recogida;
     private DepositoMoneda monAlmac;
     private int opcion = 0;
-    public int saldo=0;
+    public int saldo=9000;
     public static int serieP=0;
     private int stock;
     public static int vuelto = 0;
@@ -62,8 +62,12 @@ public class Expendedor {
                         this.opcion = y.getId();
                         calcularVuelto(vuelto);
                     } else if (this.saldo < precio){
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new PagoInsuficienteException();
                     } else {
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new NoHayProductoException();
                     }
                     break;
@@ -81,8 +85,12 @@ public class Expendedor {
                         this.opcion = y.getId();
                         calcularVuelto(vuelto);
                     } else if (this.saldo < precio){
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new PagoInsuficienteException();
                     } else {
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new NoHayProductoException();
                     }
                     break;
@@ -99,8 +107,12 @@ public class Expendedor {
                         this.opcion = y.getId();
                         calcularVuelto(vuelto);
                     } else if (this.saldo < precio){
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new PagoInsuficienteException();
                     } else {
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new NoHayProductoException();
                     }
                     break;
@@ -117,8 +129,12 @@ public class Expendedor {
                         this.opcion = y.getId();
                         calcularVuelto(vuelto);
                     } else if (this.saldo < precio){
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new PagoInsuficienteException();
                     } else {
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new NoHayProductoException();
                     }
                     break;
@@ -135,8 +151,12 @@ public class Expendedor {
                         this.opcion = y.getId();
                         calcularVuelto(vuelto);
                     } else if (this.saldo < precio){
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new PagoInsuficienteException();
                     } else {
+                        vuelto+=saldo;
+                        this.saldo=0;
                         throw new NoHayProductoException();
                     }
                     break;

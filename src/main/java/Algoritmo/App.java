@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.sql.SQLOutput;
 
 public class App {
-    public static final int CANTIDAD_PRODUCTOS=3;
+    public static final int CANTIDAD_PRODUCTOS=5;
     public static final int mon100=5;
     public static final int mon500=5;
     public static final int mon1000=5;

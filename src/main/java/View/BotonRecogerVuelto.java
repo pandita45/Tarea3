@@ -12,6 +12,7 @@ public class BotonRecogerVuelto extends JButton {
         super();
         setBackground(new Color(0, 128, 255, 100)); // Color azul con opacidad (100/255)
         setOpaque(false);
+        setBorderPainted(false);
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

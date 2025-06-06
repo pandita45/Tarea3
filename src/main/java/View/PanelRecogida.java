@@ -7,9 +7,10 @@ public class PanelRecogida extends JPanel {
     int productoComprado;
     private String imagen;
     private int a;
-    public PanelRecogida(){
+
+    public PanelRecogida() {
         super();
-        setSize(1920,1080);
+        setSize(1920, 1080);
         setOpaque(false);
     }
 
@@ -22,16 +23,18 @@ public class PanelRecogida extends JPanel {
             case 3 -> imagen = "fantaflip.png";
             case 4 -> imagen = "super8flip.png";
             case 5 -> imagen = "snickerflip.png";
-            default -> {
-            }
         }
-            try {
-                ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(imagen));
-                Image image = imageIcon.getImage();
-                g.drawImage(image,490, 788, 85,48,null);
-            } catch (Exception e) {
-                System.out.println("Error al cargar la imagen");
+            if (imagen != null) {
+                try {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(imagen));
+                    Image image = imageIcon.getImage();
+                    g.drawImage(image, 490, 788, 85, 48, null);
+                } catch (Exception e) {
+                    System.out.println("Error al cargar la imagen: " + imagen);
+                }
             }
+
         }
     }
+
 

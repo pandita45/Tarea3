@@ -12,6 +12,7 @@ public class PanelComprador extends JPanel {
     private BotonMenu toggle;
     public static int queMenu=0;
     public static Comprador comprador;
+
     public PanelComprador(){
         super();
         setLayout(null);
@@ -20,10 +21,11 @@ public class PanelComprador extends JPanel {
         comprador = new Comprador(App.mon100,App.mon500,App.mon1000);
         monedero=new PanelMonedero();
         inventario=new PanelInventario();
-        toggle=new BotonMenu("Cambiar menu");
-        toggle.setBounds(800,500,100,100);
+        toggle=new BotonMenu("INVENTARIO");
+        toggle.setBounds(1270,930,240,60);
         add(monedero);
         add(inventario);
         add(toggle);
+
     }
 }

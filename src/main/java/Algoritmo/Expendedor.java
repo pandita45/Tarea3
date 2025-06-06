@@ -49,7 +49,6 @@ public class Expendedor {
      */
 
     public void comprarProducto(ProductoYPrecios y) throws Errores {
-            this.opcion = y.getId();
             switch (y) {
                 case COCACOLA: {
                     int precio = ProductoYPrecios.COCACOLA.getPrecio();
@@ -60,6 +59,7 @@ public class Expendedor {
                         recogida.add(CocaCola.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
+                        this.opcion = y.getId();
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
@@ -77,6 +77,7 @@ public class Expendedor {
                         recogida.add(Sprite.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
+                        this.opcion = y.getId();
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
@@ -94,6 +95,7 @@ public class Expendedor {
                         recogida.add(Fanta.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
+                        this.opcion = y.getId();
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
@@ -111,8 +113,7 @@ public class Expendedor {
                         recogida.add(Super8.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
-                        System.out.println(Super8.getStock());
-                        System.out.println(Snickers.getStock());
+                        this.opcion = y.getId();
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {
@@ -130,8 +131,7 @@ public class Expendedor {
                         recogida.add(Snickers.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
-                        System.out.println(Snickers.getStock());
-                        System.out.println(Super8.getStock());
+                        this.opcion = y.getId();
                     } else if (this.saldo < precio){
                         throw new PagoInsuficienteException();
                     } else {

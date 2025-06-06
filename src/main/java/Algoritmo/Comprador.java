@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Comprador {
     private String sonido;
-    private int cuantoDinero;
+    public int cuantoDinero;
     private ArrayList<Moneda> monedero;
     public Comprador(int a100, int b500, int c1000) {
         monedero = new ArrayList<Moneda>();
@@ -82,5 +82,14 @@ public class Comprador {
         while ((mon = exp.getVuelto()) != null) {
             monedero.add(mon);
         }
+    }
+    public int cuantasMonedas(int valor) {
+        int cont = 0;
+        for (Moneda monedas : monedero) {
+            if (monedas.getValor() == valor) {
+                cont++;
+            }
+        }
+        return cont;
     }
 }

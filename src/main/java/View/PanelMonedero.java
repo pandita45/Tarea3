@@ -12,14 +12,15 @@ public class PanelMonedero extends JPanel {
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        try {
-            ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("monedero.png"));
-            Image image = imageIcon.getImage();
-            g.drawImage(image,800, 50,1100,900,null);
-        } catch (Exception e) {
-            System.out.println("Error al cargar la imagen del monedero");
+        if(PanelComprador.queMenu==0){
+            try {
+                ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("monedero.png"));
+                Image image = imageIcon.getImage();
+                g.drawImage(image,800, 50,1100,900,null);
+            } catch (Exception e) {
+                System.out.println("Error al cargar la imagen del monedero");
+            }
         }
-
     }
 
 }

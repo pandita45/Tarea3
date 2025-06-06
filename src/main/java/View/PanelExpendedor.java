@@ -54,9 +54,8 @@ public class PanelExpendedor extends JPanel {
         add(DatosSuper8);
         add(DatosSnickers);
         add(Saldo);
-        if(PanelExpendedor.exp.getOpcion() != 0){
-            add(productoComprado);
-        }
+        add(productoComprado);
+
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

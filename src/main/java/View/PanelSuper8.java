@@ -21,7 +21,7 @@ public class PanelSuper8 extends JPanel {
                 Image image = imageIcon.getImage();
                 g.drawImage(image,403+ i*55, 675, 48,85,null);
             } catch (Exception e) {
-                System.out.println("Error al cargar la imagen de la coca cola");
+                System.out.println("Error al cargar la imagen del super 8");
             }
         }
     }

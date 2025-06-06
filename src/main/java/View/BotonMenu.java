@@ -27,7 +27,6 @@ public class BotonMenu extends JButton {
                     //mostrar monedero
                     PanelComprador.queMenu++;
                     setText("MONEDERO");
-
                 }
                 else {
                     //muestra inventario

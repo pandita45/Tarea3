@@ -17,6 +17,7 @@ public class BotonCompra extends JButton {
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PanelComprador.comprador.recogerVuelto(PanelExpendedor.exp);
                 posY = MouseInfo.getPointerInfo().getLocation().getY();
                 if(posY > 263 && posY < 368){
                     try {

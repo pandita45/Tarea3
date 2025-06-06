@@ -22,6 +22,7 @@ public class Comprador {
     }
 
     public int saldoActual() {
+        this.cuantoDinero=0;
         for (Moneda moneda : monedero) {
             this.cuantoDinero += moneda.getValor();
         }

@@ -62,7 +62,6 @@ public class PanelExpendedor extends JPanel {
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (PanelComprador.queMenu == 0) {
             try {
                 ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("Doom_Machine.jpg"));
                 Image image = imageIcon.getImage();
@@ -76,7 +75,6 @@ public class PanelExpendedor extends JPanel {
             DatosSnickers.setText("$" + ProductoYPrecios.SNICKER.getPrecio() + "  Stock: " + exp.Snickers.getStock());
             DatosSuper8.setText("$" + ProductoYPrecios.SUPER8.getPrecio() + "  Stock: " + exp.Super8.getStock());
             Saldo.setText("$" + exp.getSaldo());
-
         }
     }
-}
+

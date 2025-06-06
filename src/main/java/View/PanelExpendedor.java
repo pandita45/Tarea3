@@ -20,11 +20,13 @@ public class PanelExpendedor extends JPanel {
     private Texto Saldo;
     private Texto vuelto;
     private PanelRecogida productoComprado;
-    private BotonCompra compra;
+    private BotonCompra botonCompra;
     private BotonRecogerProducto botonProducto;
     private BotonRecogerVuelto botonVuelto;
+    private BotonRellenarStock botonRellenarStock;
     public PanelExpendedor(){
         super();
+
         productoComprado = new PanelRecogida();
         exp= new Expendedor(App.CANTIDAD_PRODUCTOS);
         DatosCoca = new Texto(null);
@@ -49,12 +51,14 @@ public class PanelExpendedor extends JPanel {
         snickers = new PanelSnickers();
         fanta = new PanelFanta();
         sprite = new PanelSprite();
-        compra=new BotonCompra();
-        compra.setBounds(133,240,230,525);
+        botonCompra =new BotonCompra();
+        botonCompra.setBounds(133,240,230,527);
         botonProducto = new BotonRecogerProducto();
         botonProducto.setBounds(410,782,250,60);
         botonVuelto = new BotonRecogerVuelto();
         botonVuelto.setBounds(753,782,60,50);
+        botonRellenarStock = new BotonRellenarStock();
+        botonRellenarStock.setBounds(395,240,283,527);
         add(sprite);
         add(coca);
         add(super8);
@@ -67,9 +71,10 @@ public class PanelExpendedor extends JPanel {
         add(DatosSuper8);
         add(Saldo);
         add(productoComprado);
-        add(compra);
+        add(botonCompra);
         add(botonProducto);
         add(botonVuelto);
+        add(botonRellenarStock);
         add(vuelto);
     }
     protected void paintComponent(Graphics g) {

@@ -55,7 +55,7 @@ public class Expendedor {
                     int precio = ProductoYPrecios.COCACOLA.getPrecio();
                     int b = CocaCola.getStock();
                     if (this.saldo >= precio && b != 0) {
-                        vuelto = this.saldo - precio;
+                        vuelto += this.saldo - precio;
                         recogida.add(CocaCola.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
@@ -73,7 +73,7 @@ public class Expendedor {
                     int precio = ProductoYPrecios.SPRITE.getPrecio();
                     int b = Sprite.getStock();
                     if (this.saldo >= precio && b != 0) {
-                        vuelto = this.saldo - precio;
+                        vuelto += this.saldo - precio;
                         recogida.add(Sprite.get());
                         monVu.transportar(monVu,monAlmac);
 
@@ -92,7 +92,7 @@ public class Expendedor {
                     int precio = ProductoYPrecios.FANTA.getPrecio();
                     int b = Fanta.getStock();
                     if (this.saldo >= precio && b != 0) {
-                        vuelto = this.saldo - precio;
+                        vuelto += this.saldo - precio;
                         recogida.add(Fanta.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
@@ -110,7 +110,7 @@ public class Expendedor {
                     int precio = ProductoYPrecios.SUPER8.getPrecio();
                     int b = Super8.getStock();
                     if (this.saldo >= precio && b != 0) {
-                        vuelto = this.saldo - precio;
+                        vuelto += this.saldo - precio;
                         recogida.add(Super8.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;
@@ -128,7 +128,7 @@ public class Expendedor {
                     int precio = ProductoYPrecios.SNICKER.getPrecio();
                     int b = Snickers.getStock();
                     if (this.saldo >= precio && b != 0) {
-                        vuelto = this.saldo - precio;
+                        vuelto += this.saldo - precio;
                         recogida.add(Snickers.get());
                         monVu.transportar(monVu,monAlmac);
                         this.saldo=0;

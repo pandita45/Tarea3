@@ -9,8 +9,18 @@ public class PanelMonedero extends  JPanel{
     private Texto mon500;
     private Texto mon1000;
     private Texto Dinero;
+    private BotonAgregarMoneda agregar100;
+    private BotonAgregarMoneda agregar500;
+    private BotonAgregarMoneda agregar1000;
     public PanelMonedero(){
         super();
+        agregar100 = new BotonAgregarMoneda(100);
+        agregar500 = new BotonAgregarMoneda(500);
+        agregar1000 = new BotonAgregarMoneda(1000);
+        agregar100.setBounds(1115, 495, 150, 150);
+        agregar500.setBounds(1305, 490, 150, 150);
+        agregar1000.setBounds(1501, 490, 150, 150);
+
         mon100 = new Texto(null);
         mon100.setBounds(1163, 586, 200, 200);
         mon500 = new Texto(null);
@@ -19,17 +29,23 @@ public class PanelMonedero extends  JPanel{
         mon1000.setBounds(1563, 586, 200, 200);
         Dinero = new Texto(null);
         Dinero.setBounds(1300,200, 200, 200);
+
         PanelComprador.comprador.saldoActual();
         setLayout(null);
         setOpaque(false);
         setSize(1920,1080);
+
         VistaMon = new PanelMoneda();
         VistaMon.setBounds(770, 56, 1920, 1080);
+
         add(VistaMon);
         add(mon100);
         add(mon500);
         add(mon1000);
         add(Dinero);
+        add(agregar100);
+        add(agregar500);
+        add(agregar1000);
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -50,6 +66,9 @@ public class PanelMonedero extends  JPanel{
             mon500.setVisible(true);
             mon1000.setVisible(true);
             Dinero.setVisible(true);
+            agregar100.setVisible(true);
+            agregar500.setVisible(true);
+            agregar1000.setVisible(true);
 
         }
         else{
@@ -57,7 +76,11 @@ public class PanelMonedero extends  JPanel{
             mon500.setVisible(false);
             mon1000.setVisible(false);
             Dinero.setVisible(false);
+            agregar100.setVisible(false);
+            agregar500.setVisible(false);
+            agregar1000.setVisible(false);
         }
+
         }
     }
 

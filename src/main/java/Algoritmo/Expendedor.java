@@ -76,6 +76,7 @@ public class Expendedor {
                         vuelto = this.saldo - precio;
                         recogida.add(Sprite.get());
                         monVu.transportar(monVu,monAlmac);
+
                         this.saldo=0;
                         this.opcion = y.getId();
                         calcularVuelto(vuelto);
@@ -148,17 +149,18 @@ public class Expendedor {
      * @param vuelto es el valor numérico que se debe dar de vuelto
      */
     private void calcularVuelto(int vuelto){
-        for(int i = 0; i < vuelto/1000; i++){
-            vuelto = vuelto - 1000;
+        int iteraciones = vuelto;
+        for(int i = 0; i < iteraciones/1000; i++){
             monVu.add(new Moneda1000());
+            vuelto = vuelto - 1000;
         }
-
-        for(int i = 0; i < vuelto/500; i ++){
+        iteraciones = vuelto;
+        for(int i = 0; i < iteraciones/500; i ++){
             vuelto = vuelto - 500;
             monVu.add(new Moneda500());
         }
-
-        for (int i = 0; i < vuelto / 100; i++) {
+        iteraciones = vuelto;
+        for (int i = 0; i < iteraciones / 100; i++) {
             monVu.add(new Moneda100());
         }
     }

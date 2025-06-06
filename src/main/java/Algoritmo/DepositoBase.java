@@ -31,7 +31,8 @@ public abstract class DepositoBase<item> {
         }
     }
     public void transportar(DepositoBase a, DepositoBase b){
-        for (int i = 0; i < a.getStock() ; i++) {
+        int stock = a.getStock();
+        for (int i = 0; i < stock ; i++) {
             b.add(a.get());
         }
     }

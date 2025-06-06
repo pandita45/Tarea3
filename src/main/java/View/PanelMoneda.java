@@ -23,7 +23,7 @@ public class PanelMoneda extends JPanel {
                 try {
                     ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(Monedas.get(i)));
                     Image image = imageIcon.getImage();
-                    g.drawImage(image, 320 + 200*i , 420, 200, 200, null);
+                    g.drawImage(image, 320 + 186*i , 420, 200, 200, null);
                 } catch (Exception e) {
                     System.out.println("Error al cargar la imagen del monedero");
                 }

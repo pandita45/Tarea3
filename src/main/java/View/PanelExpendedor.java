@@ -18,8 +18,11 @@ public class PanelExpendedor extends JPanel {
     private Texto DatosSuper8;
     private Texto DatosSnickers;
     private Texto Saldo;
+    private Texto vuelto;
     private PanelRecogida productoComprado;
     private BotonCompra compra;
+    private BotonRecogerProducto botonProducto;
+    private BotonRecogerVuelto botonVuelto;
     public PanelExpendedor(){
         super();
         productoComprado = new PanelRecogida();
@@ -36,6 +39,8 @@ public class PanelExpendedor extends JPanel {
         DatosSnickers.setBounds(145,615,700,30);
         Saldo = new Texto(null);
         Saldo.setBounds(745,320,700,30);
+        vuelto = new Texto(null);
+        vuelto.setBounds(745,700,300,30);
         setLayout(null);
         setSize(1920,1080);
         setOpaque(false);
@@ -46,6 +51,10 @@ public class PanelExpendedor extends JPanel {
         sprite = new PanelSprite();
         compra=new BotonCompra();
         compra.setBounds(133,240,230,525);
+        botonProducto = new BotonRecogerProducto();
+        botonProducto.setBounds(410,782,250,60);
+        botonVuelto = new BotonRecogerVuelto();
+        botonVuelto.setBounds(753,782,60,50);
         add(sprite);
         add(coca);
         add(super8);
@@ -59,11 +68,14 @@ public class PanelExpendedor extends JPanel {
         add(Saldo);
         add(productoComprado);
         add(compra);
+        add(botonProducto);
+        add(botonVuelto);
+        add(vuelto);
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
             try {
-                ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("Doom_Machine.jpg"));
+                ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("Doom_Machine.png"));
                 Image image = imageIcon.getImage();
                 g.drawImage(image, 0, 0, 950, 900, null);
             } catch (Exception e) {
@@ -75,6 +87,7 @@ public class PanelExpendedor extends JPanel {
             DatosSnickers.setText("$" + ProductoYPrecios.SNICKER.getPrecio() + "  Stock: " + exp.Snickers.getStock());
             DatosSuper8.setText("$" + ProductoYPrecios.SUPER8.getPrecio() + "  Stock: " + exp.Super8.getStock());
             Saldo.setText("$" + exp.getSaldo());
+            vuelto.setText("$" + exp.getVueltoInt());
         }
     }
 

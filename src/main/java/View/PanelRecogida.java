@@ -24,6 +24,7 @@ public class PanelRecogida extends JPanel {
             case 4 -> imagen = "super8flip.png";
             case 5 -> imagen = "snickerflip.png";
         }
+        if (BotonRecogerProducto.recogida == 0) {
             if (imagen != null) {
                 try {
                     ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(imagen));
@@ -33,8 +34,7 @@ public class PanelRecogida extends JPanel {
                     System.out.println("Error al cargar la imagen: " + imagen);
                 }
             }
-
         }
     }
-
+}
 

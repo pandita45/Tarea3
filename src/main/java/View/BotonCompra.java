@@ -17,11 +17,11 @@ public class BotonCompra extends JButton {
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PanelComprador.comprador.recogerVuelto(PanelExpendedor.exp);
                 posY = MouseInfo.getPointerInfo().getLocation().getY();
                 if(posY > 263 && posY < 368){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.COCACOLA, PanelExpendedor.exp);
+                        BotonRecogerProducto.recogida = 0;
                     } catch (Errores ex) {
                         throw new RuntimeException(ex);
                     }
@@ -29,6 +29,7 @@ public class BotonCompra extends JButton {
                 if(posY > 368 && posY < 473){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.SPRITE, PanelExpendedor.exp);
+                        BotonRecogerProducto.recogida = 0;
                     } catch (Errores ex) {
                         throw new RuntimeException(ex);
                     }
@@ -36,6 +37,7 @@ public class BotonCompra extends JButton {
                 if(posY > 473 && posY < 578){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.FANTA, PanelExpendedor.exp);
+                        BotonRecogerProducto.recogida = 0;
                     } catch (Errores ex) {
                         throw new RuntimeException(ex);
                     }
@@ -43,6 +45,7 @@ public class BotonCompra extends JButton {
                 if(posY > 578 && posY < 683){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.SNICKER, PanelExpendedor.exp);
+                        BotonRecogerProducto.recogida = 0;
                     } catch (Errores ex) {
                         throw new RuntimeException(ex);
                     }
@@ -50,6 +53,7 @@ public class BotonCompra extends JButton {
                 if(posY > 683 && posY < 788){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.SUPER8, PanelExpendedor.exp);
+                        BotonRecogerProducto.recogida = 0;
                     } catch (Errores ex) {
                         throw new RuntimeException(ex);
                     }

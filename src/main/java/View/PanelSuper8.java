@@ -26,9 +26,9 @@ public class PanelSuper8 extends JPanel {
                 System.out.println("Error al cargar la imagen del super 8");
             }
         }
-        int b = 8;
+        int b = 9;
         if (PanelComprador.queMenu == 1) {
-            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SUPER8)<8) {
+            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SUPER8)<9) {
                 b = PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SUPER8);
             }
             for (int i = 0; i < b; i++) {
@@ -39,6 +39,13 @@ public class PanelSuper8 extends JPanel {
                 } catch (Exception e) {
                     System.out.println("Error al cargar la imagen del super8");
                 }
+            }
+            try {
+                ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("super8.png"));
+                Image image = imageIcon.getImage();
+                g.drawImage(image, 1440, 760, 50, 80, null);
+            } catch (Exception e) {
+                System.out.println("Error al cargar la imagen del super8");
             }
         }
     }

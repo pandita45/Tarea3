@@ -51,116 +51,11 @@ public class Expendedor {
 
     public void comprarProducto(ProductoYPrecios y) throws Errores {
             switch (y) {
-                case COCACOLA: {
-                    int precio = ProductoYPrecios.COCACOLA.getPrecio();
-                    int b = CocaCola.getStock();
-                    if (this.saldo >= precio && b != 0) {
-                        vuelto += this.saldo - precio;
-                        recogida.add(CocaCola.get());
-                        monVu.transportar(monVu,monAlmac);
-                        this.saldo=0;
-                        this.opcion = y.getId();
-                        calcularVuelto(vuelto);
-                    } else if (this.saldo < precio){
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new PagoInsuficienteException();
-                    } else {
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new NoHayProductoException();
-                    }
-                    break;
-                }
-
-                case SPRITE: {
-                    int precio = ProductoYPrecios.SPRITE.getPrecio();
-                    int b = Sprite.getStock();
-                    if (this.saldo >= precio && b != 0) {
-                        vuelto += this.saldo - precio;
-                        recogida.add(Sprite.get());
-                        monVu.transportar(monVu,monAlmac);
-
-                        this.saldo=0;
-                        this.opcion = y.getId();
-                        calcularVuelto(vuelto);
-                    } else if (this.saldo < precio){
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new PagoInsuficienteException();
-                    } else {
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new NoHayProductoException();
-                    }
-                    break;
-                }
-
-                case FANTA: {
-                    int precio = ProductoYPrecios.FANTA.getPrecio();
-                    int b = Fanta.getStock();
-                    if (this.saldo >= precio && b != 0) {
-                        vuelto += this.saldo - precio;
-                        recogida.add(Fanta.get());
-                        monVu.transportar(monVu,monAlmac);
-                        this.saldo=0;
-                        this.opcion = y.getId();
-                        calcularVuelto(vuelto);
-                    } else if (this.saldo < precio){
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new PagoInsuficienteException();
-                    } else {
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new NoHayProductoException();
-                    }
-                    break;
-                }
-
-                case SUPER8: {
-                    int precio = ProductoYPrecios.SUPER8.getPrecio();
-                    int b = Super8.getStock();
-                    if (this.saldo >= precio && b != 0) {
-                        vuelto += this.saldo - precio;
-                        recogida.add(Super8.get());
-                        monVu.transportar(monVu,monAlmac);
-                        this.saldo=0;
-                        this.opcion = y.getId();
-                        calcularVuelto(vuelto);
-                    } else if (this.saldo < precio){
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new PagoInsuficienteException();
-                    } else {
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new NoHayProductoException();
-                    }
-                    break;
-                }
-
-                case SNICKER: {
-                    int precio = ProductoYPrecios.SNICKER.getPrecio();
-                    int b = Snickers.getStock();
-                    if (this.saldo >= precio && b != 0) {
-                        vuelto += this.saldo - precio;
-                        recogida.add(Snickers.get());
-                        monVu.transportar(monVu,monAlmac);
-                        this.saldo=0;
-                        this.opcion = y.getId();
-                        calcularVuelto(vuelto);
-                    } else if (this.saldo < precio){
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new PagoInsuficienteException();
-                    } else {
-                        vuelto+=saldo;
-                        this.saldo=0;
-                        throw new NoHayProductoException();
-                    }
-                    break;
-                }
+                case COCACOLA -> compra(ProductoYPrecios.COCACOLA.getPrecio(), y, CocaCola.getStock());
+                case SPRITE -> compra(ProductoYPrecios.SPRITE.getPrecio(), y, Sprite.getStock());
+                case FANTA -> compra(ProductoYPrecios.FANTA.getPrecio(), y, Fanta.getStock());
+                case SNICKER -> compra(ProductoYPrecios.SNICKER.getPrecio(), y, Snickers.getStock());
+                case SUPER8 -> compra(ProductoYPrecios.SUPER8.getPrecio(), y, Super8.getStock());
             }
     }
 
@@ -244,6 +139,30 @@ public class Expendedor {
     }
     public int getVueltoInt(){
         return vuelto;
+    }
+    public void compra(int precio, ProductoYPrecios y, int stock) throws Errores{
+        if (this.saldo >= precio && stock != 0 && recogida.getStock() == 0) {
+            switch (y){
+                case COCACOLA -> recogida.add(CocaCola.get());
+                case FANTA -> recogida.add(Fanta.get());
+                case SPRITE -> recogida.add(Sprite.get());
+                case SNICKER -> recogida.add(Snickers.get());
+                case SUPER8 -> recogida.add(Super8.get());
+            }
+            vuelto += this.saldo - precio;
+            monVu.transportar(monVu,monAlmac);
+            this.saldo=0;
+            this.opcion = y.getId();
+            calcularVuelto(vuelto);
+        } else if (this.saldo < precio){
+            vuelto+=saldo;
+            this.saldo=0;
+            throw new PagoInsuficienteException();
+        } else {
+            vuelto+=saldo;
+            this.saldo=0;
+            throw new NoHayProductoException();
+        }
     }
 }
 

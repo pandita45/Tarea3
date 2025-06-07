@@ -27,9 +27,9 @@ public class PanelSnickers extends JPanel {
                 System.out.println("Error al cargar la imagen del Snickers");
             }
         }
-        int b = 8;
+        int b = 9;
         if (PanelComprador.queMenu == 1) {
-            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SNICKER)<8) {
+            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SNICKER)<9) {
                 b = PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SNICKER);
             }
             for (int i = 0; i < b; i++) {
@@ -40,6 +40,13 @@ public class PanelSnickers extends JPanel {
                 } catch (Exception e) {
                     System.out.println("Error al cargar la imagen del snickers");
                 }
+            }
+            try {
+                ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("snickers.png"));
+                Image image = imageIcon.getImage();
+                g.drawImage(image, 1330, 760, 50, 80, null);
+            } catch (Exception e) {
+                System.out.println("Error al cargar la imagen del snicker");
             }
         }
     }

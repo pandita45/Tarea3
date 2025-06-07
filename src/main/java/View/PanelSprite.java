@@ -28,9 +28,9 @@ public class PanelSprite extends JPanel {
                 System.out.println("Error al cargar la imagen de la Sprite");
             }
         }
-        int b = 8;
+        int b = 9;
         if (PanelComprador.queMenu == 1) {
-            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SPRITE)<8) {
+            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SPRITE)<9) {
                 b = PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SPRITE);
             }
             for (int i = 0; i < b; i++) {
@@ -41,6 +41,13 @@ public class PanelSprite extends JPanel {
                 } catch (Exception e) {
                     System.out.println("Error al cargar la imagen de la sprite");
                 }
+            }
+            try {
+                ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("sprite.png"));
+                Image image = imageIcon.getImage();
+                g.drawImage(image, 1130, 760, 50, 80, null);
+            } catch (Exception e) {
+                System.out.println("Error al cargar la imagen de la sprite");
             }
         }
     }

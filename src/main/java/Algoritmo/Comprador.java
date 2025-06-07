@@ -73,8 +73,8 @@ public class Comprador {
 
     public void recogerProducto(Expendedor exp) {
         Producto b = exp.getProducto();
-        inventario.add(b);
         if (b != null) {
+            inventario.add(b);
             sonido = b.accion();
         } else {
             sonido = null;

@@ -24,9 +24,9 @@ public class PanelFanta extends JPanel {
                 System.out.println("Error al cargar la imagen de la fanta");
             }
         }
-        int b=8;
+        int b=9;
         if (PanelComprador.queMenu == 1) {
-            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.FANTA)<8) {
+            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.FANTA)<9) {
                 b = PanelComprador.comprador.cuantosProductos(ProductoYPrecios.FANTA);
             }
             for (int i = 0; i < b; i++) {
@@ -37,6 +37,13 @@ public class PanelFanta extends JPanel {
                 } catch (Exception e) {
                     System.out.println("Error al cargar la imagen de la fanta");
                 }
+            }
+            try {
+                ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("fanta.png"));
+                Image image = imageIcon.getImage();
+                g.drawImage(image, 1230, 760, 50, 80, null);
+            } catch (Exception e) {
+                System.out.println("Error al cargar la imagen de la fanta");
             }
         }
     }

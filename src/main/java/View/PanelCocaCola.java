@@ -28,9 +28,9 @@ public class PanelCocaCola extends JPanel {
                 System.out.println("Error al cargar la imagen de la coca cola");
             }
         }
-        int b = 8;
+        int b = 9;
         if (PanelComprador.queMenu == 1) {
-            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.COCACOLA)<8) {
+            if (PanelComprador.comprador.cuantosProductos(ProductoYPrecios.COCACOLA)<9) {
                 b = PanelComprador.comprador.cuantosProductos(ProductoYPrecios.COCACOLA);
             }
                 for (int i = 0; i < b; i++) {
@@ -42,6 +42,13 @@ public class PanelCocaCola extends JPanel {
                         System.out.println("Error al cargar la imagen de la cocacola");
                     }
                 }
+            try {
+                ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("cocacola.png"));
+                Image image = imageIcon.getImage();
+                g.drawImage(image, 1030, 760, 50, 80, null);
+            } catch (Exception e) {
+                System.out.println("Error al cargar la imagen de la cocacola");
             }
         }
     }
+}

@@ -9,7 +9,7 @@ public class Expendedor {
     private DepositoProductos recogida;
     private DepositoMoneda monAlmac;
     private int opcion = 0;
-    public int saldo=9000;
+    public int saldo=0;
     public static int serieP=0;
     private int stock;
     public static int vuelto = 0;

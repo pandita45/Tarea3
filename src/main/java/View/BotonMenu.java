@@ -8,14 +8,7 @@ import java.awt.event.ActionListener;
 public class BotonMenu extends JButton {
     public BotonMenu(String texto) {
         super(texto);
-        try{
-            Font minecraftFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("Minecraft.ttf"));
-            minecraftFont = minecraftFont.deriveFont(Font.PLAIN, 27f);
-            setFont(minecraftFont);
-        } catch (Exception e) {
-            System.out.println("Error al cargar fuente Minecraft.ttf: " + e.getMessage());
-            setFont(new Font("Arial", Font.BOLD, 40)); // Fuente por defecto si falla
-        }
+        setFont(Texto.minecraftFont);  // Aquí usas la fuente estática ya cargada en Texto
         setBackground(new Color(24, 24, 99));
         setForeground(Color.WHITE);
         setFocusPainted(false);

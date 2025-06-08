@@ -10,10 +10,11 @@ public class PanelRecogida extends JPanel {
 
     public PanelRecogida() {
         super();
-        setSize(1920, 1080);
+        setSize(Escalar.X(1920), Escalar.Y(1080));
         setOpaque(false);
     }
 
+    @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         a = PanelExpendedor.exp.getOpcion();
@@ -27,9 +28,7 @@ public class PanelRecogida extends JPanel {
         if (BotonRecogerProducto.recogida == 0) {
             if (imagen != null) {
                 try {
-                    ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(imagen));
-                    Image image = imageIcon.getImage();
-                    g.drawImage(image, 490, 788, 85, 48, null);
+                    ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(imagen)); Image image = imageIcon.getImage(); g.drawImage(image, Escalar.X(490), Escalar.Y(788), Escalar.X(85), Escalar.Y(48), null);
                 } catch (Exception e) {
                     System.out.println("Error al cargar la imagen: " + imagen);
                 }

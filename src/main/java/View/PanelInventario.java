@@ -3,10 +3,6 @@ import Algoritmo.ProductoYPrecios;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import static java.awt.Color.red;
 
 public class PanelInventario extends JPanel {
     private PanelCocaCola coca;
@@ -20,28 +16,29 @@ public class PanelInventario extends JPanel {
     private BotonConsumir consumirSnickers;
     private BotonConsumir consumirSuper8;
     private Texto invStocks;
+
     public PanelInventario() {
         super();
         invStocks = new Texto("null");
-        invStocks.setBounds(1040, 840, 450, 30);
+        invStocks.setBounds(Escalar.X(1040), Escalar.Y(840), Escalar.X(450), Escalar.Y(30));
         coca = new PanelCocaCola();
         sprite = new PanelSprite();
         fanta = new PanelFanta();
         snickers = new PanelSnickers();
         super8 = new PanelSuper8();
-        setSize(1920,1080);
+        setSize(Escalar.X(1920), Escalar.Y(1080));
         setOpaque(false);
         setLayout(null);
         consumirCocaCola = new BotonConsumir("cocacola");
-        consumirCocaCola.setBounds(1030, 760, 50, 105);
+        consumirCocaCola.setBounds(Escalar.X(1030), Escalar.Y(760), Escalar.X(50), Escalar.Y(105));
         consumirSprite = new BotonConsumir("sprite");
-        consumirSprite.setBounds(1130, 760, 50, 105);
+        consumirSprite.setBounds(Escalar.X(1130), Escalar.Y(760), Escalar.X(50), Escalar.Y(105));
         consumirFanta = new BotonConsumir("fanta");
-        consumirFanta.setBounds(1230, 760, 50, 105);
+        consumirFanta.setBounds(Escalar.X(1230), Escalar.Y(760), Escalar.X(50), Escalar.Y(105));
         consumirSnickers = new BotonConsumir("Snickers");
-        consumirSnickers.setBounds(1330, 760, 50, 105);
+        consumirSnickers.setBounds(Escalar.X(1330), Escalar.Y(760), Escalar.X(50), Escalar.Y(105));
         consumirSuper8 = new BotonConsumir("Super8");
-        consumirSuper8.setBounds(1425, 760, 50, 105);
+        consumirSuper8.setBounds(Escalar.X(1425), Escalar.Y(760), Escalar.X(50), Escalar.Y(105));
         add(coca);
         add(sprite);
         add(fanta);
@@ -53,31 +50,30 @@ public class PanelInventario extends JPanel {
         add(consumirFanta);
         add(consumirSnickers);
         add(consumirSuper8);
-
     }
+
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if(PanelComprador.queMenu == 1){
+        if (PanelComprador.queMenu == 1) {
             try {
                 ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("Inventario.png"));
                 Image image = imageIcon.getImage();
-                g.drawImage(image,1000, 60,820,850,null);
+                g.drawImage(image, Escalar.X(1000), Escalar.Y(60), Escalar.X(820), Escalar.Y(850), null);
             } catch (Exception e) {
                 System.out.println("Error al cargar la imagen del inventario");
             }
-            invStocks.setText("x"+PanelComprador.comprador.cuantosProductos(ProductoYPrecios.COCACOLA)+
-                    "        x"+PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SPRITE)+
-                    "        x"+PanelComprador.comprador.cuantosProductos(ProductoYPrecios.FANTA)+
-                    "        x"+PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SNICKER)+
-                    "        x"+PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SUPER8));
+            invStocks.setText("x" + PanelComprador.comprador.cuantosProductos(ProductoYPrecios.COCACOLA) +
+                    "        x" + PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SPRITE) +
+                    "        x" + PanelComprador.comprador.cuantosProductos(ProductoYPrecios.FANTA) +
+                    "        x" + PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SNICKER) +
+                    "        x" + PanelComprador.comprador.cuantosProductos(ProductoYPrecios.SUPER8));
             consumirCocaCola.setVisible(true);
             consumirSprite.setVisible(true);
             consumirFanta.setVisible(true);
             consumirSnickers.setVisible(true);
             consumirSuper8.setVisible(true);
             invStocks.setVisible(true);
-        }
-        else {
+        } else {
             consumirCocaCola.setVisible(false);
             consumirSprite.setVisible(false);
             consumirFanta.setVisible(false);

@@ -9,7 +9,7 @@ public class PanelPrincipal extends JPanel {
         super();
         setLayout(null);
         setOpaque(false);
-        setSize(1920,1080);
+        setSize(Escalar.X(1920),Escalar.Y(1080));
         expendedor = new PanelExpendedor();
         comprador = new PanelComprador();
         add(expendedor);

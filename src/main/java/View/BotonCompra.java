@@ -19,7 +19,7 @@ public class BotonCompra extends JButton {
             @Override
             public void actionPerformed(ActionEvent e) {
                 posY = MouseInfo.getPointerInfo().getLocation().getY();
-                if(posY > 263 && posY < 368){
+                if(posY > Escalar.Y(263) && posY < Escalar.Y(368)){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.COCACOLA, PanelExpendedor.exp);
                         BotonRecogerProducto.recogida = 0;
@@ -27,7 +27,7 @@ public class BotonCompra extends JButton {
                         throw new RuntimeException(ex);
                     }
                 }
-                if(posY > 368 && posY < 473){
+                if(posY > Escalar.Y(368) && posY < Escalar.Y(473)){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.SPRITE, PanelExpendedor.exp);
                         BotonRecogerProducto.recogida = 0;
@@ -35,7 +35,7 @@ public class BotonCompra extends JButton {
                         throw new RuntimeException(ex);
                     }
                 }
-                if(posY > 473 && posY < 578){
+                if(posY > Escalar.Y(473) && posY < Escalar.Y(578)){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.FANTA, PanelExpendedor.exp);
                         BotonRecogerProducto.recogida = 0;
@@ -43,7 +43,7 @@ public class BotonCompra extends JButton {
                         throw new RuntimeException(ex);
                     }
                 }
-                if(posY > 578 && posY < 683){
+                if(posY > Escalar.Y(578) && posY < Escalar.Y(683)){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.SNICKER, PanelExpendedor.exp);
                         BotonRecogerProducto.recogida = 0;
@@ -51,7 +51,7 @@ public class BotonCompra extends JButton {
                         throw new RuntimeException(ex);
                     }
                 }
-                if(posY > 683 && posY < 788){
+                if(posY > Escalar.Y(683) && posY < Escalar.Y(788)){
                     try {
                         PanelComprador.comprador.comprar(ProductoYPrecios.SUPER8, PanelExpendedor.exp);
                         BotonRecogerProducto.recogida = 0;
@@ -64,4 +64,3 @@ public class BotonCompra extends JButton {
         });
     }
 }
-

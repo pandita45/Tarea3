@@ -1,8 +1,6 @@
 package View;
 
-import Algoritmo.Expendedor;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class Ventana extends JFrame{
@@ -16,9 +14,10 @@ public class Ventana extends JFrame{
         add(principal);
 
         setTitle("Doom_MachineV9");
-        setSize(1920,1080);
+        setSize(Escalar.X(1920), Escalar.Y(1080));
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
 
     }
 

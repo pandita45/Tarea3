@@ -13,6 +13,11 @@ public class PanelMonedero extends JPanel {
     private BotonAgregarMoneda agregar500;
     private BotonAgregarMoneda agregar1000;
 
+    /**
+     * Se agregan textos correspondientes al stock de las monedas del comprador ademas de un texto que representa la cantidad de dinero total
+     * Se agrega el panel que dibuja las monedas asi como sus respectivos botones
+     */
+
     public PanelMonedero() {
         super();
         agregar100 = new BotonAgregarMoneda(100); agregar100.setBounds(Escalar.X(1115), Escalar.Y(495), Escalar.X(150), Escalar.Y(150));
@@ -34,6 +39,9 @@ public class PanelMonedero extends JPanel {
         add(VistaMon); add(mon100); add(mon500); add(mon1000); add(Dinero); add(agregar100); add(agregar500); add(agregar1000);
     }
 
+    /**
+     * En base a la condicion queMenu mostramos las monedas y sus componentes
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

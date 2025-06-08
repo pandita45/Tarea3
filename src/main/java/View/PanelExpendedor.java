@@ -25,6 +25,14 @@ public class PanelExpendedor extends JPanel {
     private BotonRecogerProducto botonProducto;
     private BotonRecogerVuelto botonVuelto;
     private BotonRellenarStock botonRellenarStock;
+
+    /**
+     * Dentro de panel expendedor tendremos 5 textos que muestran el Stock y el precio de cada producto
+     * Ademas de agregar los paneles de cada producto, los cuales dibujan el producto en secuencia
+     * Se agrega un pan "recodiga" para mostrar el producto comprado
+     *  3 Botones, para comprar, rellenar el stock, recoger el vuelto y recoger el producto
+     */
+
     public PanelExpendedor(){
         super();
         productoComprado = new PanelRecogida();
@@ -77,6 +85,11 @@ public class PanelExpendedor extends JPanel {
         add(botonRellenarStock);
         add(vuelto);
     }
+
+    /**
+     * Dentro del metodo paint component se dibuja el expendedor y demas se actualizan los textos con el stock y precios
+     */
+
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         try {

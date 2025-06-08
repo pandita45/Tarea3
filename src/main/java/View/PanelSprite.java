@@ -4,6 +4,12 @@ import Algoritmo.ProductoYPrecios;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Esta clase dibuja todas las imagenes de coca cola  usadas en el programa
+ * En base a condicionales dibuja la bebida en una secuencia horizontal, en el expendedor como maximo 5 y en el inventario como maximo 9
+ * ademas dibuja la bebida visible en el stock de inventario
+ */
+
 public class PanelSprite extends JPanel {
     public PanelSprite(){
         super();

@@ -1,9 +1,7 @@
 package View;
 
-import Algoritmo.Comprador;
 import Algoritmo.Errores;
 import Algoritmo.ProductoYPrecios;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,9 +9,13 @@ import java.awt.event.ActionListener;
 
 public class BotonCompra extends JButton {
     double posY;
+
+    /**
+     *  Un solo boton, el cual dependiendo de donde fue apretado, comprara cierto producto
+     */
     public BotonCompra() {
         super();
-        setBackground(new Color(0, 128, 255, 100)); // Color azul con opacidad (100/255)
+        setBackground(new Color(0, 128, 255, 100));
         setOpaque(false);
         this.addActionListener(new ActionListener() {
             @Override

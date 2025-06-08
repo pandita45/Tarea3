@@ -7,6 +7,10 @@ import java.util.ArrayList;
 public class PanelMoneda extends JPanel {
     ArrayList<String> Monedas;
 
+    /**
+     * Panel encargado de dibujar las monedas en el monedero, se agregan sus rutas en una array y se seleccionan mediante un ciclo
+     */
+
     public PanelMoneda(){
         setLayout(null);
         setOpaque(false);

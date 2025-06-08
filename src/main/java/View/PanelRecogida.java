@@ -4,9 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelRecogida extends JPanel {
-    int productoComprado;
     private String imagen;
-    private int a;
+    private int Opcion;
 
     public PanelRecogida() {
         super();
@@ -14,11 +13,15 @@ public class PanelRecogida extends JPanel {
         setOpaque(false);
     }
 
+    /**
+     * En base a la opcion escogida para comprar, usamos un switch para decidir que imagen de producto se mostrara en el panel de recogida
+     */
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        a = PanelExpendedor.exp.getOpcion();
-        switch (a) {
+        Opcion = PanelExpendedor.exp.getOpcion();
+        switch (Opcion) {
             case 1 -> imagen = "cocacolaflip.png";
             case 2 -> imagen = "spriteflip.png";
             case 3 -> imagen = "fantaflip.png";

@@ -5,8 +5,13 @@ import java.awt.*;
 
 public class Texto extends JLabel {
     public static Font minecraftFont;
-    public Texto(String a){
-        super(a);
+
+    /**
+     * @param Mensaje Es el mensaje que se mostrara en pantalla cuando se llame a Texto
+     * Se crea un bloque static para usar la fuente cargada en cualquier lugar del programa
+     */
+    public Texto(String Mensaje){
+        super(Mensaje);
         setFont(minecraftFont);
         setForeground(Color.WHITE);
         setOpaque(false);

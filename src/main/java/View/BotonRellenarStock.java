@@ -1,16 +1,18 @@
 package View;
 
-import Algoritmo.Expendedor;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Al presionar llama a la funcion Rellenar de Expendedor
+ */
 public class BotonRellenarStock extends JButton {
     public BotonRellenarStock(){
         super();
-        setBackground(new Color(0, 128, 255, 100)); // Color azul con opacidad (100/255)
+        setBackground(new Color(0, 128, 255, 100));
         setOpaque(false);
         this.addActionListener(new ActionListener() {
             @Override

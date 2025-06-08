@@ -17,6 +17,12 @@ public class PanelInventario extends JPanel {
     private BotonConsumir consumirSuper8;
     private Texto invStocks;
 
+    /**
+     * Se agregan los paneles de productos para dibujarlos en el inventario
+     * Se agregan los botones para consumir los respectivos producots
+     * Se agrega un texto para mostrar el stock actual en el inventario
+     */
+
     public PanelInventario() {
         super();
         invStocks = new Texto("null");
@@ -51,6 +57,10 @@ public class PanelInventario extends JPanel {
         add(consumirSnickers);
         add(consumirSuper8);
     }
+
+    /**
+     *En base a un condicional se dibuja el inventario y se muestran o no las variables de texto y botones en base a la misma condicion
+     */
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

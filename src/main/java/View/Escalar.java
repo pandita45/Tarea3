@@ -1,6 +1,11 @@
 package View;
 import java.awt.*;
 
+/**
+ * Esta clase contiene metodos que obtienen las dimensiones de la pantalla donde se ejecuta el programa
+ * y en base a la resolucion 1920x1080, obtienen un escalar de los pixeles para ajustar las dimensiones a cualquier pantalla
+ */
+
 public class Escalar {
     private static final int BASE_ANCHO = 1920;
     private static final int BASE_ALTO = 1080;

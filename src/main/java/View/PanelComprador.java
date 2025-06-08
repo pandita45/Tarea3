@@ -4,7 +4,11 @@ import Algoritmo.App;
 import Algoritmo.Comprador;
 
 import javax.swing.*;
-import java.awt.*;
+
+/**
+ * El panel de comprador tiene dentro 2 paneles, monedero e inventario, los cuales se muestrane en base al valor de "queMenu"
+ * Ademas tiene un boton para cambiar entre Inevntario y Monedero
+ */
 
 public class PanelComprador extends JPanel {
     private PanelMonedero monedero;

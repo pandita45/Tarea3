@@ -7,10 +7,14 @@ import java.awt.event.ActionListener;
 
 public class BotonAgregarMoneda extends JButton {
     private int valor;
+
+    /**
+     * @param valor Determina el valor de la moneda que sera ingresada
+     */
     public BotonAgregarMoneda(int valor){
         super();
         this.valor = valor;
-        setBackground(new Color(0, 128, 255, 100)); // Color azul con opacidad (100/255)
+        setBackground(new Color(0, 128, 255, 100));
         setOpaque(false);
         setBorderPainted(false);
 

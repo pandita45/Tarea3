@@ -5,6 +5,10 @@ import javax.swing.*;
 public class PanelPrincipal extends JPanel {
     private PanelExpendedor expendedor;
     private PanelComprador comprador;
+
+    /**
+     * Se agregan los panales de Expendedor y  Comprador al panel principal
+     */
     public PanelPrincipal(){
         super();
         setLayout(null);

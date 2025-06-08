@@ -97,6 +97,7 @@ public class Expendedor {
     public void agregarSaldo(Moneda moneda){
         if(moneda != null) {
             this.saldo += moneda.getValor();
+            System.out.println("Numero serie moneda agregada: "+moneda.getSerieM());
             monVu.add(moneda);
         }
     }

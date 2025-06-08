@@ -2,7 +2,7 @@ package Algoritmo;
 
 abstract class Moneda implements Comparable<Moneda>{
     private int serieM=0;
-    protected int cont=1;
+    public static int cont=1;
     public Moneda() {
         this.serieM=cont;
         cont++;

@@ -122,4 +122,16 @@ public class Comprador {
         }
         return cont;
     }
+
+    public String ConsumirProducto(String queAccion) {
+        for(Producto producto: inventario){
+            if(producto.accion()==queAccion){
+                sonido = producto.accion();
+                inventario.remove(producto);
+                System.out.println("Seba, la casaaa, la casa: " + sonido);
+                break;
+            }
+        }
+        return sonido;
+    }
 }

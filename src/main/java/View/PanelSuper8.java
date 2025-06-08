@@ -43,7 +43,7 @@ public class PanelSuper8 extends JPanel {
             try {
                 ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("super8.png"));
                 Image image = imageIcon.getImage();
-                g.drawImage(image, 1440, 760, 50, 80, null);
+                g.drawImage(image, 1430, 760, 50, 80, null);
             } catch (Exception e) {
                 System.out.println("Error al cargar la imagen del super8");
             }

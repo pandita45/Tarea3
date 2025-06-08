@@ -1,5 +1,6 @@
 package View;
 
+import Algoritmo.Comprador;
 import Algoritmo.Errores;
 import Algoritmo.ProductoYPrecios;
 

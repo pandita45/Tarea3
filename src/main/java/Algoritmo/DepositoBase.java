@@ -30,6 +30,12 @@ public abstract class DepositoBase<item> {
             return null;
         }
     }
+
+    /**
+     * Traspasa todos los elementos del array "a" al "b"
+     * @param a array de donde se sacan los elementos
+     * @param b array que recibe todos los elementos de "a"
+     */
     public void transportar(DepositoBase a, DepositoBase b){
         int stock = a.getStock();
         for (int i = 0; i < stock ; i++) {

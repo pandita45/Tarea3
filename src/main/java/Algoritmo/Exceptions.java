@@ -33,6 +33,9 @@ class PagoInsuficienteException extends Errores{
 }
 
 class DepositoRecogidaException extends Errores{
+  /**
+   * Constructor llama a constructor de la superclase con el mensaje personalizado.
+   */
   public DepositoRecogidaException(){
     super("Deposito de recogida lleno: Porfavor recoga producto antes de comprar otro");
     JOptionPane.showMessageDialog(null, "Recoga producto antes de comprar otro", "DepositoRecogidaException", JOptionPane.ERROR_MESSAGE);

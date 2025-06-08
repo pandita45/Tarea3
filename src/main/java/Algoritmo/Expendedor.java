@@ -40,15 +40,14 @@ public class Expendedor {
     }
 
     /**
-     *  El metodo comprarProducto recibe una moneda y una opción numerica
-     *  Comprueba que haya stock, que alcance el dinero y que exista una moneda válida
-     *  Luego llena el depósito de monedas con las correspondiéntes monedas de 100 (vuelto)
-     * @param y       Corresponde a la opción de producto
-     * @throws NoHayProductoException Cuando el depósito no tiene productos
-     * @throws PagoIncorrectoException Cuando no se ingreso ninguna moneda
-     * @throws PagoInsuficienteException Cuando el valor de moneda es menor al precio
+     *  El metodo comprarProducto recibe una moneda y una opción numerica.
+     *  Comprueba que haya stock, que alcance el dinero y que exista una moneda válida.
+     *  Luego llena el depósito de monedas con las correspondiéntes monedas de 100 (vuelto).
+     * @param y Corresponde a la opción de producto.
+     * @throws NoHayProductoException Cuando el depósito no tiene productos.
+     * @throws PagoIncorrectoException Cuando no se ingreso ninguna moneda.
+     * @throws PagoInsuficienteException Cuando el valor de moneda es menor al precio.
      */
-
     public void comprarProducto(ProductoYPrecios y) throws Errores {
             switch (y) {
                 case COCACOLA -> compra(ProductoYPrecios.COCACOLA.getPrecio(), y, CocaCola.getStock());
@@ -61,7 +60,7 @@ public class Expendedor {
 
     /**
      * Tomando el valor del vuelto, se agregan mágicamente las monedas necesarias para que se den como vuelto, de mayor a menor valor.
-     * @param vuelto es el valor numérico que se debe dar de vuelto
+     * @param vuelto es el valor numérico que se debe dar de vuelto.
      */
     private void calcularVuelto(int vuelto){
         int iteraciones = vuelto;
@@ -80,20 +79,25 @@ public class Expendedor {
         }
     }
     /**
-     * getvuelto Llama a un metodo que saca las monedas del depósito.
-     * @return Entrega todas las monedas correspondientes al vuelto
+     * Llama a un metodo que saca las monedas del depósito.
+     * @return Entrega todas las monedas correspondientes al vuelto.
      */
     public Moneda getVuelto() {
         return monVu.get();
     }
 
     /**
-     * getProducto llama al metodo que saca el producto del deposito de recogida.
-     * @return Producto que se compró
+     * Llama al metodo que saca el producto del depósito de recogida.
+     * @return Producto que se compró.
      */
     public Producto getProducto() {
         return recogida.get();
     }
+
+    /**
+     * Agrega monedas a la maquina expendedora.
+     * @param moneda que moneda se le agregara a la moneda expendedora.
+     */
     public void agregarSaldo(Moneda moneda){
         if(moneda != null) {
             this.saldo += moneda.getValor();
@@ -101,6 +105,10 @@ public class Expendedor {
             monVu.add(moneda);
         }
     }
+
+    /**
+     * Rellena los depósitos vacíos de productos de la maquina expendedora.
+     */
     public void rellenar(){
         if(CocaCola.Deposito.isEmpty()) {
             for (int i = 0; i < stock; i++) {
@@ -132,15 +140,35 @@ public class Expendedor {
         }
     }
 
+    /**
+     * @return devuelve saldo de la maquina.
+     */
     public int getSaldo() {
         return saldo;
     }
+
+    /**
+     * @return devuelve la ultima opcion de producto de la máquina.
+     */
     public int getOpcion(){
         return this.opcion;
     }
+
+    /**
+     * @return devuelve el vuelto luego de comprar productos.
+     */
     public int getVueltoInt(){
         return vuelto;
     }
+
+    /**
+     * Metodo para comprar un producto.
+     * @param precio Precio del producto que se desea comprar.
+     * @param y Qué producto se desea comprar.
+     * @param stock Stock del producto que se desea comprar.
+     * @throws Errores en caso de no haber stock, no ser el saldo suficiente para la compra, no meter moneda o que en
+     * el espacio de recogida ya alla un producto, tira un mensaje de error en la compra.
+     */
     public void compra(int precio, ProductoYPrecios y, int stock) throws Errores{
         if (this.saldo >= precio && stock != 0 && recogida.getStock() == 0) {
             switch (y){

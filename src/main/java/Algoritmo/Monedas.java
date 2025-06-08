@@ -3,12 +3,18 @@ package Algoritmo;
 abstract class Moneda implements Comparable<Moneda>{
     private int serieM=0;
     public static int cont=1;
+
+    /**
+     * Se le da un número de serie a las monedas, empezando por 0 y se le suma 1 a cada número de serie siguiente
+     */
     public Moneda() {
         this.serieM=cont;
         cont++;
     }
 
-
+    /**
+     * @return devuelve número de serie de la moneda.
+     */
     public int getSerieM() {
         return serieM;
     }

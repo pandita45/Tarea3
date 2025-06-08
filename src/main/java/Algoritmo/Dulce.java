@@ -3,7 +3,7 @@ package Algoritmo;
 
 abstract class Dulce extends Producto{
     /**
-     * Constructor de Dulce que le da su numero de serie.
+     * Constructor de Dulce que le da su número de serie.
      * @param serie numero de serie que se le asignara.
      */
     public Dulce(int serie) {
@@ -11,8 +11,8 @@ abstract class Dulce extends Producto{
     }
 
     /**
-     * Metodo necesario de la clase Dulce (es abstracto en la clase Producto)
-     * @return devuelve el tipo de producto que es (Dulce en este caso), luego se le hara override.
+     * Metodo necesario de la clase Dulce (es abstracto en la clase Producto).
+     * @return devuelve el tipo de producto que es (Dulce en este caso), luego se le hará override.
      */
     public String accion(){
         return "Dulce";

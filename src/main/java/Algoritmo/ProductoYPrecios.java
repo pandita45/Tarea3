@@ -12,30 +12,31 @@ public enum ProductoYPrecios{
 
     /**
      * El constructor asigna los valores de precio e id a las variables
-     * @param id valor numerico correspondiente a la opcion de compra
-     * @param precio  precio del producto en cuestion
+     * @param id valor numérico correspondiente a la opción de compra
+     * @param precio  precio del producto en cuestión
      */
     private ProductoYPrecios(int id, int precio){
         this.id = id;
         this.precio = precio;
     }
 
-    /** Funcion que permite cambiar el precio de cierto producto
-     * @param precio valor numerico correspondiente al precio
+    /**
+     * Función que permite cambiar el precio de cierto producto
+     * @param precio valor numérico correspondiente al precio
      */
     public void setPrecio(int precio){
         this.precio = precio;
     }
 
     /**
-     * @return Devuelve el id de cierto producto
+     * @return Devuelve el ID de cierto producto
      */
     public int getId() {
         return this.id;
     }
 
     /**
-     * @return Devuelve el precio de cierto producto en forma de valor numerico
+     * @return Devuelve el precio de cierto producto en forma de valor numérico
      */
     public int getPrecio() {
         return this.precio;

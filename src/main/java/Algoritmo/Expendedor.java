@@ -91,7 +91,7 @@ public class Expendedor {
      * getProducto llama al metodo que saca el producto del deposito de recogida.
      * @return Producto que se compró
      */
-    public Producto getProducto(){
+    public Producto getProducto() {
         return recogida.get();
     }
     public void agregarSaldo(Moneda moneda){
@@ -154,10 +154,14 @@ public class Expendedor {
             this.saldo=0;
             this.opcion = y.getId();
             calcularVuelto(vuelto);
-        } else if (this.saldo < precio){
+        } else if (this.saldo < precio && this.saldo != 0){
             vuelto+=saldo;
             this.saldo=0;
             throw new PagoInsuficienteException();
+        } else if (this.saldo == 0){
+            throw new PagoIncorrectoException();
+        } else if (recogida.getStock() != 0){
+            throw new DepositoRecogidaException();
         } else {
             vuelto+=saldo;
             this.saldo=0;

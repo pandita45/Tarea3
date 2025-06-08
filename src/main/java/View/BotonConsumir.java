@@ -17,7 +17,9 @@ public class BotonConsumir extends JButton {
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PanelComprador.comprador.ConsumirProducto(queAccion);
+                if(PanelComprador.comprador.ConsumirProducto(queAccion) != null){
+                    JOptionPane.showMessageDialog(null, "Usted a consumido: " + queAccion + ".\nNumero de serie: " + Comprador.numSerieActual, "", JOptionPane.INFORMATION_MESSAGE);
+                }
                 Ventana.actualizar();
             }
         });

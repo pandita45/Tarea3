@@ -8,7 +8,6 @@ import java.awt.*;
 public class Ventana extends JFrame{
     private PanelPrincipal principal;
     private static Ventana instancia;
-
     private Ventana() {
         super();
         setLayout(null);

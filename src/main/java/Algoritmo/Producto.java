@@ -1,6 +1,6 @@
 package Algoritmo;
 
-abstract class Producto {
+public abstract class Producto {
     private int serie;
 
     /** @param a Determina el numero de serie del producto

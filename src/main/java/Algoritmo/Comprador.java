@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Comprador {
     private String sonido;
     public int cuantoDinero;
+    public static int numSerieActual;
     private ArrayList<Moneda> monedero;
     private ArrayList<Producto> inventario;
 
@@ -124,13 +125,18 @@ public class Comprador {
     }
 
     public String ConsumirProducto(String queAccion) {
+        int cont = 0;
         for(Producto producto: inventario){
-            if(producto.accion()==queAccion){
+            if(producto.accion()==queAccion) {
+                cont+=1;
                 sonido = producto.accion();
+                numSerieActual = producto.getSerie();
                 inventario.remove(producto);
-                System.out.println("Seba, la casaaa, la casa: " + sonido);
                 break;
             }
+        }
+        if(cont == 0){
+            return null;
         }
         return sonido;
     }

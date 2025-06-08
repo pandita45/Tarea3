@@ -1,10 +1,9 @@
 package Algoritmo;
 
-import View.PanelCocaCola;
-import View.PanelPrincipal;
-import View.Ventana;
-import View.PanelExpendedor;
+import View.*;
+
 import javax.swing.*;
+import java.awt.*;
 import java.sql.SQLOutput;
 
 public class App {
